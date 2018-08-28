@@ -51,7 +51,7 @@ void sumar2 (int n1 ,  int n2){
 
 }*/
 
-int main() {
+/*int main() {
  int suma;
  suma = sumar3();
  printf("La suma es: %d", suma);
@@ -71,4 +71,46 @@ int main() {
 
     suma = numeroUno + numeroDos;
 
- }
+ }*/
+  int sumar4 (int numeroUno, int numeroDos)
+  {
+    int suma;
+    suma = numeroUno + numeroDos;
+    return suma
+    }
+
+  int main()
+{
+     int numeroUno;
+    int numeroDos;
+    int suma;
+
+    printf("ingrese el primer numero ");
+    scanf("%d", &numeroUno);
+
+    printf("ingrese el segundo numero ");
+    scanf("%d", &numeroDos);
+    suma = sumar4(numeroUno, numeroDos);
+
+    printf("La suma es: %d", suma);
+    return 0;
+}
+
+/*void sumar2 (int n1 ,  int n2){
+
+    int suma = n1 + n2;
+
+
+
+int main() {
+    int numeroUno;
+    int numeroDos;
+    int suma;
+
+    printf("ingrese el primer numero ");
+    scanf("%d", &numeroUno);
+
+    printf("ingrese el segundo numero ");
+    scanf("%d", &numeroDos);
+    retunr 0;
+}*/
