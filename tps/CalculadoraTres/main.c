@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-int sumar(int nUno,int nDos);
-int restar( int nUno ,  int nDos);
-int multiplicar(int nUno , int nDos);
-int dividir(int nUno ,  int nDos);
-int factorizar(int nUno);
+    int sumar(int nUno,int nDos);
+    int restar( int nUno ,  int nDos);
+    int multiplicar(int nUno , int nDos);
+    int dividir(int nUno ,  int nDos);
+    int factorizar(int nUno);
 
 int main()
 {
@@ -14,7 +14,8 @@ int main()
     int resta;
     int multiplicacion;
     int division;
-    int factorizacion;
+    int factorizacionUno;
+    int factorizacionDos;
 
     int opcion;
 
@@ -39,7 +40,7 @@ int main()
 
     case 2:
 
-        prinf("Digite el segundo numero. \n");
+        printf("Digite el segundo numero. \n");
         scanf("%d", &numeroDos);
 
         system("cls");
@@ -47,42 +48,39 @@ int main()
 
     case 3:
 
-        int sumar(int nUno,int nDos);
-        int suma = sumar(numeroUno, numeroDos);
+        suma = sumar(numeroUno, numeroDos);
 
-        int restar( int nUno ,  int nDos);
-        resta = restar ( int nUno , int nDos);
+        resta = restar ( numeroUno ,numeroDos );
 
-        int multiplicar(int nUno , int nDos);
         multiplicacion = multiplicar (numeroUno , numeroDos);
 
-        int dividir(int nUno ,  int nDos);
         division = dividir ( numeroUno , numeroDos);
 
-        int factorizar(int nUno);
-        factorizacion = factorizar ( numeroUno);
+        factorizacionUno =   factorizar( numeroUno);
 
-        int factorizar (int nUno);
-        factorizacion = factorizar (numeroDos);
-
+        factorizacionDos = factorizar (numeroDos);
         break;
 
     case 4:
-
-
+        printf("\n El resultado de la suma es de: %d", suma);
+        printf("\n El resultado de la resta es de: %d", resta);
+        printf("\n El resultado de la multiplicacion es  de: %d", multiplicacion);
+        printf("\n El resultado de la division es de:  %d",division);
+        printf("\n El resultado de la factorial del primer numero es de: %d", factorizacionUno);
+        printf("\nEl resultado de la factorial del segundo numero es de :%d", factorizacionDos);
 
 
 
     case 5:
         exit("n");
         break;
-
+        }
     system("pause");
     system("cls");
 
-
+    }
         while ( opcion !=5);
-        }
+
 
     return 0;
 

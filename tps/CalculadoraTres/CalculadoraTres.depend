@@ -1,3 +1,7 @@
 # depslib dependency file v1.0
 1536063071 source:c:\users\alumno\desktop\desktop\tps\calculadoratres\biblioteca.c
 
+1536072919 source:c:\users\alumno\desktop\desktop\tps\calculadoratres\main.c
+	<stdio.h>
+	<stdlib.h>
+
