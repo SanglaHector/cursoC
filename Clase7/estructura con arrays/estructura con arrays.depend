@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1537195359 source:c:\users\alumno\desktop\clasec\clase7\estructura con arrays\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1537196114 source:c:\users\alumno\desktop\clasec\clase7\estructura con arrays\alumno.c
+	"alumno.h"
+	<stdio.h>
+	<stdlib.h>
+
+1537195863 c:\users\alumno\desktop\clasec\clase7\estructura con arrays\alumno.h
+
