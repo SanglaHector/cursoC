@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1555096033 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\ejercicio 69  con estructura\estructuras.c
+	"Estructuras.h"
+
+1555095805 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\ejercicio 69  con estructura\estructuras.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
