@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1554478452 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\ejemplo\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1554484518 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\ejemplo\biblioteca69.c
+	"Biblioteca69.h"
+
+1554489100 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\ejemplo\biblioteca69.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1555091475 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\ejercicio 69\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1555090602 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\ejercicio 69\biblioteca69.c
+	"Biblioteca69.h"
+
+1555090567 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\ejercicio 69\biblioteca69.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
