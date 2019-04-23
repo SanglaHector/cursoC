@@ -39,19 +39,19 @@ int buscarE(eEmpleado vec[], int tam , int clave);
 void inicializarE(eEmpleado [], int tam );
 /**
 **/
-void altaE(eEmpleado [], int );
+void altaE(eEmpleado [], int ,eSector[]);
 /**
 **/
-void bajaE(eEmpleado [], int );
+void bajaE(eEmpleado [], int,eSector sectores[]);
 /**
 **/
 void modificarE(eEmpleado vec[], int tam);
 /**
 **/
-void mostrarE(eEmpleado e);
+void mostrarE(eEmpleado e,eSector sectores[]);
 /**
 **/
-void mostrarEs(eEmpleado vec[], int tam);
+void mostrarEs(eEmpleado vec[], int tam,eSector sectores[]);
 /**
 **/
 void hardCodear(eEmpleado vec[], int tam);

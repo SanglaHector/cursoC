@@ -31,18 +31,22 @@ typedef struct{
 }eSector;
 
 int buscarLibre(eEmpleado vec[], int tam);
-int buscarE(eEmpleado vec[], int tam , int clave);
-void inicializarE(eEmpleado [], int tam );
-void altaE(eEmpleado [], int );
-void bajaE(eEmpleado [], int );
+int buscarE(eEmpleado vec[], int tam);
+void inicializarE(eEmpleado [], int tam);
+void altaE(eEmpleado [], int);
+void bajaE(eEmpleado [], int);
 void modificarE(eEmpleado vec[], int tam);
-void mostrarE(eEmpleado e);
-void mostrarEs(eEmpleado vec[], int tam);
+void mostrarE(eEmpleado e, eSector sectores);
+void mostrarEs(eEmpleado vec[], int tam,eSector sectores);
 void hardCodear(eEmpleado vec[], int tam);
 
 int main()
 {
     eEmpleado empleados[TAM];
+    eSector   sectores[4] = {   {1,"Sistemas"},
+                                {2,"RRHH"},
+                                {3,"Legales"},
+                                {4,"Contable"}};
     inicializarE(empleados,TAM);
     hardCodear(empleados,5);
     int opcion;
@@ -65,7 +69,7 @@ do
             altaE(empleados,TAM);
             break;
         case 2:
-            mostrarEs(empleados,TAM);
+            mostrarEs(empleados,TAM,sectores);
             break;
         case 3:
         //    menuInformes();

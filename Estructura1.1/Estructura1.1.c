@@ -8,7 +8,7 @@ void inicializarE(eEmpleado vec[], int tam){
     }
 }
 //**************************************************************************************************************
-void altaE(eEmpleado vec[], int tam){
+void altaE(eEmpleado vec[], int tam,eSector sectores[]){
     int legajo;
     int repetido;
     int validar = -1;
@@ -31,9 +31,17 @@ void altaE(eEmpleado vec[], int tam){
             vec[indice].legajo = legajo;
             pedirDatos(vec,tam,indice);
 
+            printf("\nIngrese el sector: ");
+            printf("\n1.Sistemas");
+            printf("\n2.RRHH");
+            printf("\n3.Legales");
+            printf("\n4.Contable\n");
+            scanf("%d", &vec[indice].sector);
+
+
         }else{
             printf("\nEl legajo %d ya existe: ", legajo);
-            mostrarE(vec[repetido]);
+            mostrarE(vec[repetido],sectores);
         }
     }
 }
@@ -61,12 +69,12 @@ int buscarE(eEmpleado vec[], int tam , int clave){
     return indice;
 }
 //**************************************************************************************************************
-void mostrarE(eEmpleado e){
+void mostrarE(eEmpleado e, eSector sectores[]){
 
-   // printf("\nNOMBRE   APELLIDO    SEXO  SUELDO   FECHA DE INGRESO.\n");
-    printf("Legajo: %d Nombre: %s Apellido: %s Sexo: %c Sueldo: %.2f Fecha: %02d/%02d/%02d \n",e.legajo,e.nombre,e.apellido,e.sexo,e.sueldo,e.fechaIngreso.dia,e.fechaIngreso.mes,e.fechaIngreso.anio);}
+
+    printf("Legajo: %d Nombre: %s Apellido: %s Sexo: %c Sueldo: %.2f Fecha: %02d/%02d/%02d Sector: %s \n",e.legajo,e.nombre,e.apellido,e.sexo,e.sueldo,e.fechaIngreso.dia,e.fechaIngreso.mes,e.fechaIngreso.anio,sectores[e.sector].descripcion);}
 //**************************************************************************************************************
-void bajaE(eEmpleado vec[], int tam){
+void bajaE(eEmpleado vec[], int tam,eSector sectores[]){
     int legajo;
     int indice;
     char seguir = 'n';
@@ -74,7 +82,7 @@ void bajaE(eEmpleado vec[], int tam){
     scanf("%d", &legajo);
     indice = buscarE(vec,tam,legajo);
     if (indice != -1 && vec[indice].estado == OCUPADO){
-        mostrarE(vec[indice]);
+        mostrarE(vec[indice],sectores);
         printf("\nEsta seguro que desea dar de baja este empleado? S/N: ");
         fflush(stdin);
         scanf("%c",&seguir);
@@ -100,7 +108,7 @@ void modificarE(eEmpleado vec[], int tam){
     scanf("%d", &legajo);
     indice = buscarE(vec,tam,legajo);
     if (indice != -1 && vec[indice].estado == OCUPADO){
-        mostrarE(vec[indice]);
+        mostrarE(vec[indice],sectores);
         printf("\nIngrese el nuevo sueldo del empleado: ");
         scanf("%f", &sueldo);
         printf("\nEsta seguro que desea dar de baja este empleado? S/N: ");
@@ -135,11 +143,11 @@ void hardCodear(eEmpleado vec[], int tam){
     }
 }
 //**************************************************************************************************************
-void mostrarEs(eEmpleado vec[], int tam){
+void mostrarEs(eEmpleado vec[], int tam, eSector sectores){
     for(int i = 0 ; i < tam ; i ++){
 
         if (vec[i].estado == OCUPADO){
-            mostrarE(vec[i]);
+            mostrarE(vec[i], sectores);
             }
     }
 }
@@ -260,5 +268,10 @@ void pedirDatos(eEmpleado vec[], int tam, int indice){
             }
      }
             vec[indice].estado = OCUPADO;
-            printf("\nDatos ingresados con exito!");
+
+
+
+            printf("\nDatos ingresados con exito!\n");
 }
+//*****************************************************************************************************************************
+//void asignarSector(eEmpleado vec[],eSector sector[],tam)
