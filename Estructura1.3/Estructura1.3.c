@@ -408,3 +408,39 @@ void sectorConMasEmpleados(eEmpleado vec[], int tam, eSector vecSec[], int tamSe
 
     }
 }
+//*****************************************************************************************************************************
+//*Almuerzos por empleados. uno elige un sector y nos muestra todos los almuerzos de ese sector = nombre, apellido
+//comida y fecha.anio/
+//*****************************************************************************************************************************
+void  menuAlmuerzos(eEmpleado vec[], int tam, eSector vecSec[], int tamSec, eComida vecCom[], int tamMenu, eAlmuerzo vecAlm[], int tamAlm){
+
+int opcion;
+    do{
+
+        printf("\n1.Almuerzos por empleados");
+        printf("\n2.Almuerzos por sector");
+        printf("\n3.");
+        printf("\n4.Salir");
+        scanf("%d", &opcion);
+        switch(opcion){
+        case 1:
+
+            almuerzosEmpleados();
+            break;
+
+        case 2:
+
+            break;
+
+        case 3:
+            break;
+
+        case 4:
+            printf("\nSaliendon.\n");
+            system("pause");
+            break;
+
+        }
+    }while(opcion =! 4);
+
+}

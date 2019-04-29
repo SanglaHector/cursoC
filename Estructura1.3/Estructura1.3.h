@@ -28,6 +28,20 @@ typedef struct{
     int id;
     char descripcion[20];
 }eSector;
+
+typedef struct{
+    int id;
+    char descripcion[20];
+
+}eComida;
+
+typedef struct{
+    int id;
+    int idEmpleado;
+    int idComida;
+    eFecha fecha;
+    char descripcion [];
+}eAlmuerzo;
 /**
 **/
 int buscarLibre(eEmpleado vec[], int tam);
@@ -76,5 +90,8 @@ void empleadoMasAntiguo(eEmpleado vec[], int tam, eSector vecSec[], int tamSec);
 /**
 **/
 void sectorConMasEmpleados(eEmpleado vec[], int tam, eSector vecSec[], int tamSec);
+/**
+**/
+void  menuAlmuerzos(eEmpleado vec[], int tam, eSector vecSec[], int tamSec, eComida vecCom[], int tamMenu, eAlmuerzo vecAlm[], int tamAlm);
 /**
 **/
