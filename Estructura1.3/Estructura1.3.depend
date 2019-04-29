@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1556552476 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\estructura1.3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1556559519 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\estructura1.3\estructura1.3.c
+	"Estructura1.3.h"
+
+1556559437 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\estructura1.3\estructura1.3.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
