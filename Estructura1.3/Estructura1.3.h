@@ -95,3 +95,10 @@ void sectorConMasEmpleados(eEmpleado vec[], int tam, eSector vecSec[], int tamSe
 void  menuAlmuerzos(eEmpleado vec[], int tam, eSector vecSec[], int tamSec, eComida vecCom[], int tamMenu, eAlmuerzo vecAlm[], int tamAlm);
 /**
 **/
+void mostrarAlmuerzos(eEmpleado vec[], int tam, eSector vecSec[], int tamSec, eAlmuerzo vecAlm[],int tamAlm, eComida vecCom[], int tamCom);
+/**
+**/
+void mostrarAlmuerzo(eEmpleado[], int , eSector [], int, eAlmuerzo , eComida [], int );
+/**
+**/
+void comidasPorSector(eEmpleado vec[], int tam, eSector vecSec[],  int tamSec, eAlmuerzo vecAlm[],int tamAlm, eComida vecCom[], int tamCom);

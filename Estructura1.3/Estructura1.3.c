@@ -424,12 +424,11 @@ int opcion;
         scanf("%d", &opcion);
         switch(opcion){
         case 1:
-
-            almuerzosEmpleados();
+            mostrarAlmuerzos(vec,tam,vecSec, tamSec, vecAlm, tamAlm, vecCom,tamMenu);
             break;
 
         case 2:
-
+            comidasPorSector(vec,tam,vecSec,tamSec,vecAlm,tamAlm,vecCom,tamMenu);
             break;
 
         case 3:
@@ -442,5 +441,74 @@ int opcion;
 
         }
     }while(opcion =! 4);
+}
+//*****************************************************************************************************************************
+void mostrarAlmuerzos(eEmpleado vec[], int tam, eSector vecSec[], int tamSec, eAlmuerzo vecAlm[],int tamAlm, eComida vecCom[], int tamCom){
 
+for(int i = 0; i < tamAlm; i++){
+
+    mostrarAlmuerzo(vec,tam,vecSec, tamSec,vecAlm[i], vecCom,tamCom);
+}}
+//****************************************************************************************************************************
+void mostrarAlmuerzo(eEmpleado vec[], int tam, eSector vecSec[], int tamSec, eAlmuerzo almuerzo, eComida vecCom[], int tamCom){
+
+    char nombre[20];
+    char apellido[20];
+    char comida[20];
+    for(int i = 0; i < tam ; i++){
+
+        if(vec[i].estado == OCUPADO && vec[i].legajo == almuerzo.idEmpleado){
+            strcpy(nombre, vec[i].nombre);
+            strcpy(apellido, vec[i].apellido);
+        }
+    }
+    for(int j = 0; j < tamCom ; j++){
+
+        if( vecCom[j].id == almuerzo.idComida){
+            strcpy(comida, vecCom[j].descripcion);
+    }
+    }
+    printf("\nNombre: %s , Apellido: %s ,Fecha: %02d/%02d/%02d , Comida: %s\n", nombre, apellido, almuerzo.fecha.dia, almuerzo.fecha.mes, almuerzo.fecha.anio , comida);
+}
+//*****************************************************************************************************************************
+void comidasPorSector(eEmpleado vec[], int tam, eSector vecSec[],  int tamSec, eAlmuerzo vecAlm[],int tamAlm, eComida vecCom[], int tamCom){
+
+    int opcion;
+   /* int legajo;
+    int idComida;
+    char nombre[20];
+    char apellido[20];
+    char comida[20];*/
+    //char sector[20];
+    printf("\n.Elija un sector\n");
+    printf("\n1.Legal.\n");
+    printf("\n2.RRHH.\n");
+    printf("\n3.Economia.\n");
+    printf("\n4.Obrero.\n");
+    scanf("%d", &opcion);
+    for(int i = 0; i < tam ; i++){
+
+        if(vec[i].estado == OCUPADO && vec[i].sector == opcion){
+
+           /* legajo = vec[i].legajo;
+        }
+        for(int j = 0; j < tamAlm; j++){
+
+            if(vecAlm[j].idEmpleado == legajo){
+                idComida = vecAlm[j].idComida;
+            }
+            for(int k = 0; k < tamCom ;k++ ){
+                if(idComida == vecCom[k].id){
+
+                    strcpy(nombre,vec[i].nombre);
+                    strcpy(apellido,vec[i].apellido);
+                    strcpy(comida,vecCom[k].descripcion);
+                    printf("\nNombre: %s ,Apellido: %s, Comida: %s ",nombre,apellido,comida);
+                }
+            }
+        }
+    }*/
+    //a partir de aqui toque todo
+            mostrarAlmuerzos(vec,tam,vecSec,tamSec,vecAlm,tamAlm,vecCom,tamCom);
+}}
 }
