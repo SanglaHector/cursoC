@@ -208,10 +208,11 @@ void mostrarEs(eEmpleado vec[], int tam){
 }
 //**************************************************************************************************************
 void menuInformes(eEmpleado vec[], int tam){
-    system("cls");
+
 
     int opcion;
     do{
+            system("cls");
         printf("\n1.Listar empleados ordenados alfabeticamente por apellido y sector .\n");
         printf("\n2.Total y promedio de los salarios, y cuántos empleados superan el salario promedio.\n");
         printf("\n3.Salir.\n");
@@ -220,10 +221,12 @@ void menuInformes(eEmpleado vec[], int tam){
         switch(opcion){
     case 1:
         listarAlfabeticamente(vec,tam);
+        system("pause");
         break;
 
     case 2:
         totalizarSalarios(vec,tam);
+        system("pause");
         break;
 
     case 3:
@@ -255,7 +258,6 @@ void menuModificar(eEmpleado vec[], int indice, int tam){
 
 int opcion;
 int validar =  -1;
-char seguir = 'N';
 int sectorAux;
 float salarioAux;
 char nombreAux[51];
