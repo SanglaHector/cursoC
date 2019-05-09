@@ -58,3 +58,6 @@ void empleadoMasAntiguo(eEmpleado vec[], int tam, eSector vecSec[], int tamSec);
 /**
 **/
 void sectorConMasEmpleados(eEmpleado vec[], int tam, eSector vecSec[], int tamSec);
+/**
+**/
+void totalizarSalarios(eEmpleado vec[],int tam,eSector vecSec,int tamSec);

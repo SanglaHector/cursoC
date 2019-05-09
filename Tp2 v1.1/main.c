@@ -37,7 +37,7 @@ int main()
 {
     eEmpleado empleados[TAM];
     inicializarE(empleados,TAM);
-    hardCodear(empleados,8);
+    //hardCodear(empleados,8); codigo para pruebas.
     int opcion;
     int vacio;
 do

@@ -3,7 +3,7 @@
 #include <string.h>
 #include <conio.h>
 #include <ctype.h>
-#define TAM 7
+#define TAM 1000
 #define TAMSEC 4
 #define TAMMENU 7
 #define TAMALM 20
@@ -95,7 +95,7 @@ int main()
         {119, 2222, 2, {21,12,2019}}
     };
 
-    hardCodear(empleados,5);
+    hardCodear(empleados,7);
     int opcion;
 do
     {
@@ -117,7 +117,7 @@ do
             altaE(empleados,TAM,sectores, TAMSEC);
             break;
         case 2:
-            mostrarEs(empleados,TAM,sectores, TAMSEC);
+            menuMostrarE(empleados,TAM,sectores, TAMSEC);
             break;
         case 3:
             menuInformes(empleados, TAM, sectores, TAMSEC);

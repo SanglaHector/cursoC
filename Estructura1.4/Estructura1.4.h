@@ -66,6 +66,9 @@ void modificarE(eEmpleado vec[], int tam, eSector[], int);
 void mostrarE(eEmpleado e, eSector[], int);
 /**
 **/
+void menuModificar(eEmpleado vec[], int indice, int tam,eSector vecSec[], int tamSec);
+/**
+**/
 void mostrarEs(eEmpleado vec[], int tam, eSector[], int);
 /**
 **/
@@ -73,3 +76,25 @@ void hardCodear(eEmpleado vec[], int tam);
 /**
 **/
 void pedirDatos(eEmpleado vec[], int tam, int indice);
+/**
+**/
+void listarAlfabeticamente(eEmpleado vec[],int tam,eSector vecSec[],int tamSec);
+/**
+**/
+void formatearNombre(eEmpleado vec[], int tam, int indice);
+/**
+**/
+void empleadosPorLegajo(eEmpleado vec[], int tam, eSector vecSec[],int tamSec);
+/**
+**/
+void empleadosAlfabeticamente(eEmpleado vec[], int tam, eSector vecSec[], int tamSec);
+/**
+**/
+void empleadosPorSectorYLegajo(eEmpleado vec[], int tam, eSector vecSec[], int tamSec);
+/**
+**/
+void empleadosMasculinoAlfa(eEmpleado vec[], int tam, eSector vecSec[], int tamSec);
+/**
+**/
+void empleadosFemenimoPorlegajo(eEmpleado vec[], int tam, eSector vecSec[], int tamSec);
+

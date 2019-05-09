@@ -8,9 +8,11 @@ void inicializarE(eEmpleado vec[], int tam){
     }
 }
 //**************************************************************************************************************
-void altaE(eEmpleado vec[], int tam, eSector secVec[], int tamsec){
+void altaE(eEmpleado vec[], int tam, eSector secVec[], int tamSec){
     int legajo;
     int repetido;
+    int validar;
+    char aux[20];
     int indice = buscarLibre(vec,tam);
 
     if (indice == -1){
@@ -18,22 +20,22 @@ void altaE(eEmpleado vec[], int tam, eSector secVec[], int tamsec){
     }else{
             printf("\nIngrese el legajo: ");
             fflush(stdin);
-            scanf("%d", &legajo);
-
-            repetido = buscarE(vec,tam,legajo);}
+            scanf("%s", aux);
+            validar = validarInt(1,1000,aux);
+            if (validar != -1){
+                legajo = atoi(aux);
+            }
+            repetido = buscarE(vec,tam,legajo);
+            }
         if (repetido == -1){
             vec[indice].legajo = legajo;
             pedirDatos(vec,tam,indice);
-            printf("\nIngrese un sector");
-            printf("\n1.Legal");
-            printf("\n2.RRHH");
-            printf("\n3.Economia");
-            printf("\n4.Obrero");
-            scanf("%d", &vec[indice].sector);
+            printf("\nEmpleado ingresado con exito: \n");
+            mostrarE(vec[indice],secVec,tamSec);
 
         }else{
             printf("\nEl legajo %d ya existe: ", legajo);
-            mostrarE(vec[repetido], secVec, tamsec);
+            mostrarE(vec[repetido], secVec, tamSec);
         }
     }
 //**************************************************************************************************************
@@ -63,7 +65,7 @@ int buscarE(eEmpleado vec[], int tam , int clave){
 void mostrarE(eEmpleado e, eSector vecSec[], int tamSec){
 
 char sector[20];
-   // printf("\nNOMBRE   APELLIDO    SEXO  SUELDO   FECHA DE INGRESO.\n");
+   // printf("\Legajo nNOMBRE   APELLIDO    SEXO  SUELDO   FECHA DE INGRESO.\n");
    for(int i = 0; i < tamSec; i++){
 
     if ( vecSec[i].id == e.sector){
@@ -110,43 +112,15 @@ void modificarE(eEmpleado vec[], int tam, eSector vecSec[], int tamSec){
     indice = buscarE(vec,tam,legajo);
     if (indice != -1 && vec[indice].estado == OCUPADO){
         mostrarE(vec[indice],vecSec, tamSec);
-        printf("\nIngrese la opcion a modifica: \n");
-        printf("1.Sueldo \n");
-        printf("2.Sector \n");
-        scanf("%d", &opcion);
-        if (opcion == 1){
+        printf("\nDesea modificar este empleado?Ingrese S/N: ");
+        fflush(stdin);
+        scanf("%c" , &seguir);
+        fflush(stdin);
+        if(seguir == 's' || seguir == 'S'){
 
-            printf("\nIngrese el nuevo sueldo del empleado: ");
-            scanf("%f", &sueldo);
-            printf("\nEsta seguro que desea modificar este empleado? S/N: ");
-            fflush(stdin);
-            scanf("%c",&seguir);
-            seguir = toupper(seguir);
-            if( seguir == 'S'){
-
-                vec[indice].sueldo = sueldo;
-                printf("\nEl empleado se ha modificado con exito.");
-            }else {
-                printf("\nLa operacion ha sido cancelada.");}
-        }if (opcion == 2){
-
-            printf("\nIngrese un sector");
-            printf("\n1.Legal");
-            printf("\n2.RRHH");
-            printf("\n3.Economia");
-            printf("\n4.Obrero");
-            scanf("%d", &sector);
-
-            printf("\nEsta seguro que desea modificar este empleado? S/N: ");
-            fflush(stdin);
-            scanf("%c",&seguir);
-            seguir = toupper(seguir);
-            if( seguir == 'S'){
-
-                vec[indice].sector = sector;
-                printf("\nEl empleado se ha modificado con exito.");
-            }else {
-                printf("\nLa operacion ha sido cancelada.");}
+            menuModificar(vec,indice,tam,vecSec,tamSec);
+        }else{
+            printf("\nLa operacion ha sido cancelada");
         }
 
     }else {
@@ -161,7 +135,8 @@ void hardCodear(eEmpleado vec[], int tam){
     {3333,20000,"Vanesa","Rodriguez",'f',{9,11,2010},1,2},
     {4444,35000,"Marta","Galatti",'f',{23,4,1998},1,3},
     {5555,60000,"Carlos","Sanchez",'m',{10,7,2014},1,4},
-    {6666,10550,"Maria","Espada",'f',{16,8,2011},1,4}
+    {6666,10550,"Maria","Espada",'f',{16,8,2011},1,4},
+    {2222,30000,"Leila","Casati",'f',{9,5,2019},1,1}
     };
 
     for(int i = 0; i < tam; i ++){
@@ -181,65 +156,136 @@ void mostrarEs(eEmpleado vec[], int tam, eSector vecSec[], int tamSec){
 //**************************************************************************************************************
 void pedirDatos(eEmpleado vec[], int tam, int indice){
     int validar = -1;
-
+    char aux[50];
+    char auxSexo;
+//*********************VALIDO NOMBRE*****************************************
+        while( validar == -1){
             fflush(stdin);
             printf("\nIngrese nombre: ");
-            scanf("%s", vec[indice].nombre);
-
+            scanf("%s", aux);
+            validar = validarNombre(aux);
+            if( validar == -1){
+                printf("\nEl nombre solo acepta caracteres alfabeticos");
+            }
+        }
+        strcpy(vec[indice].nombre,aux);
+        formatearNombre(vec,tam,indice);
+        strcpy(aux," ");
+//********************VALIDO APELLIDO****************************************
+        validar =-1;
+        while ( validar == -1){
             fflush(stdin);
             printf("\nIngrese apellido: ");
-            scanf("%s", vec[indice].apellido);
-
+            scanf("%s", aux);
+            validar = validarNombre(aux);
+            if( validar == -1){
+                printf("\nEl apellido solo acepta caracteres alfabeticos");
+            }
+        }
+        strcpy(vec[indice].apellido,aux);
+        formatearNombre(vec,tam,indice);
+        strcpy(aux," ");
+//*******************VALIDO SUELDO*********************************************
+        validar =-1;
+    while( validar == -1){
+            fflush(stdin);
             printf("\nIngrese sueldo: ");
-            scanf("%f", &vec[indice].sueldo);
+            scanf("%s", aux);
+            validar = validarFloat(8000,100000,aux);
+            if( validar == -1){
+                printf("\nEl sueldo debe estar entre %d$ y  %d$", 8000,100000);
+            }
+    }
+     vec[indice].sueldo = atof(aux);
+     strcpy(aux," ");
+
+//******************VALIDO SEXO***********************************************
+    validar =-1;
+    while ( validar == -1){
 
             fflush(stdin);
             printf("\nIngrese sexo: ");
-            scanf("%c", &vec[indice].sexo);
-            fflush(stdin);
-
+            scanf("%c", &auxSexo);
+            validar = isalpha(auxSexo);
+            if (validar !=0){
+                auxSexo= toupper(auxSexo);
+                if(auxSexo != 'F' && auxSexo != 'M'){
+                    printf("\nPor favor solo ingrese F/M");
+                    validar = -1;
+                }else {
+                    validar = 1;
+                }
+            }else {
+                validar = -1;
+            }
+    }
+    fflush(stdin);
+    vec[indice].sexo = auxSexo;
+//******************VALIDO FECHA**********************************************
+    validar = -1;
     while( validar == -1){
             printf("\nIngrese anio de ingreso: ");
-            scanf("%d", &vec[indice].fechaIngreso.anio);
-            validar = validarInt(vec[indice].fechaIngreso.anio,1900,2100);
+            scanf("%s", aux);
+            validar = validarInt(1900,2100,aux);
             if( validar == -1){
 
              printf("\nEl año de ingreso debe estar entre 1900 y 2100.");
             }
             }
+            vec[indice].fechaIngreso.anio=atoi(aux);
+            strcpy(aux," ");
             validar = -1;
+//***************mes********************************************************
     while( validar == -1){
             printf("\nIngrese mes de ingreso: ");
-            scanf("%d", &vec[indice].fechaIngreso.mes);
-            validar = validarInt(vec[indice].fechaIngreso.mes,1,12);
+            scanf("%s", aux);
+            validar = validarInt(1,12,aux);
             if( validar == -1){
 
              printf("\nEl mes de ingreso es incorrecto.");
             }
     }
+    vec[indice].fechaIngreso.mes=atoi(aux);
+    strcpy(aux," ");
+//************************dia**********************************************
             validar = -1;
      while( validar == -1){
             printf("\nIngrese dia de ingreso: ");
-            scanf("%d", &vec[indice].fechaIngreso.dia);
-            validar = validarInt(vec[indice].fechaIngreso.dia,1,31);
-
+            scanf("%s", aux);
+            validar = validarInt(1,31,aux);
             if( validar == -1){
              printf("\nEl dia de ingreso es incorrecto.");
             }
      }
+     vec[indice].fechaIngreso.dia = atoi(aux);
+     strcpy(aux," ");
+//************************SECTOR**********************************************
+    validar = -1;
+    while(validar == -1){
+            printf("\nIngrese un sector");
+            printf("\n1.Legal");
+            printf("\n2.RRHH");
+            printf("\n3.Economia");
+            printf("\n4.Obrero\n :");
+            scanf("%s", aux);
+            validar = validarInt(1,4,aux);
+            if(validar == -1){
+                printf("\nPor favor ingrese una opcion correcta.");
+            }
+    }
+    vec[indice].sector = atoi(aux);
+    strcpy(aux," ");
+//**********************TERIMINE VALIDACION*****************************
             vec[indice].estado = OCUPADO;
             printf("\nDatos ingresados con exito!\n");
 }
 //*****************************************************************************************************************************
-//***************************************************************************************************************
-void menuModificar(eEmpleado vec[], int indice, int tam){
+void menuModificar(eEmpleado vec[], int indice, int tam,eSector vecSec[], int tamSec){
 
 int opcion;
 int validar =  -1;
-int sectorAux;
-float salarioAux;
-char nombreAux[51];
-char apellidoAux[51];
+char aux[51];
+char auxSexo;
 
 do{
         system("cls");
@@ -254,67 +300,71 @@ do{
     switch(opcion){
 
     case 1:
-        fflush(stdin);
-        printf("\nIngrese nombre: ");
-        scanf("%s", nombreAux);
-        //***************
-        validar = validarNombre(nombreAux);
-
-            if(validar == 1){
-                strcpy(vec[indice].nombre,nombreAux);
-                formatearNombre(vec,tam,indice);
-        }else{
-            printf("\nIngrese un nombre solo con caracteres alfabeticos.La operacion ha sido cancelada.\n");
+          while( validar == -1){
+            fflush(stdin);
+            printf("\nIngrese nombre: ");
+            scanf("%s", aux);
+            validar = validarNombre(aux);
+            if( validar == -1){
+                printf("\nEl nombre solo acepta caracteres alfabeticos");
+            }
         }
-        mostrarE(vec[indice]);
-        system("pause");
+        strcpy(vec[indice].nombre,aux);
+        formatearNombre(vec,tam,indice);
+        strcpy(aux," ");
 
         break;
 
     case 2:
-        fflush(stdin);
-        printf("\nIngrese apellido: ");
-        scanf("%s", apellidoAux);
-        validar = validarNombre(apellidoAux);
-
-            if(validar == 1){
-                strcpy(vec[indice].apellido,apellidoAux);
-                formatearNombre(vec,tam,indice);
-        }else{
-            printf("\nIngerese un apellido solo con caracteres alfabeticos.La operacion ha sido cancelada.\n");
+         validar =-1;
+        while ( validar == -1){
+            fflush(stdin);
+            printf("\nIngrese apellido: ");
+            scanf("%s", aux);
+            validar = validarNombre(aux);
+            if( validar == -1){
+                printf("\nEl apellido solo acepta caracteres alfabeticos");
+            }
         }
-         mostrarE(vec[indice]);
-        system("pause");
+        strcpy(vec[indice].apellido,aux);
+        formatearNombre(vec,tam,indice);
+        strcpy(aux," ");
 
         break;
 
     case 3:
-        fflush(stdin);
-        printf("\nIngrese sueldo: ");
-        scanf("%f", &salarioAux);
-        validar = validarFloat(salarioAux,8000,100000);
-            vec[indice].sueldo = salarioAux;
-            if(validar == 1){
-        }else{
-            printf("\nEl salario debe estar entre 8mil y 100mil pesos.La operacion ha sido cancelada.\n");
+         validar =-1;
+        while( validar == -1){
+            fflush(stdin);
+            printf("\nIngrese sueldo: ");
+            scanf("%s", aux);
+            validar = validarFloat(8000,100000,aux);
+            if( validar == -1){
+                printf("\nEl sueldo debe estar entre %d$ y  %d$", 8000,100000);
+            }
         }
-         mostrarE(vec[indice]);
-        system("pause");
+        vec[indice].sueldo = atof(aux);
+        strcpy(aux," ");
+
 
         break;
 
     case 4:
-        printf("\nIngrese sector: ");
-        scanf("%d", &sectorAux);
-        validar = validarInt(sectorAux,1,4);
-        if (validar == 1){
-            vec[indice].sector = sectorAux;
-        }else{
-            printf("\nLos sectores son 1,2,3 o 4. La operacion ha sido cancelada.\n");
+        validar = -1;
+        while(validar == -1){
+            printf("\nIngrese un sector");
+            printf("\n1.Legal");
+            printf("\n2.RRHH");
+            printf("\n3.Economia");
+            printf("\n4.Obrero\n :");
+            scanf("%s", aux);
+            validar = validarInt(1,4,aux);
+            if(validar == -1){
+                printf("\nPor favor ingrese una opcion correcta.");
+            }
         }
-         mostrarE(vec[indice]);
-        system("pause");
-
+        vec[indice].sector = atoi(aux);
+        strcpy(aux," ");
         break;
 
     case 5:
@@ -329,7 +379,7 @@ do{
 }while(opcion != 5);
 }
 //***************************************************************************************************************************************************************
-void listarAlfabeticamente(eEmpleado vec[],int tam){
+void listarAlfabeticamente(eEmpleado vec[],int tam,eSector vecSec[],int tamSec){
 
     eEmpleado empleadoAux;
     for (int i = 0; i < tam-1; i++ ){
@@ -354,12 +404,12 @@ void listarAlfabeticamente(eEmpleado vec[],int tam){
     for(int i= 0;i < tam;i ++){
             if(vec[i].estado == OCUPADO){
 
-                mostrarE(vec[i]);
+                mostrarE(vec[i],vecSec,tamSec);
             }
     }
 }
 //******************************************************************************************************************************************
-void totalizarSalarios(eEmpleado vec[],int tam){
+void totalizarSalarios(eEmpleado vec[],int tam,eSector vecSec[],int tamSec){
 
 float promedio = 0;
 int cantidadEmpleados = 0;
@@ -379,7 +429,7 @@ printf("\nEstos son los empleados que superan el promedio de sueldo: \n");
 for (int i = 0; i < tam ; i++){
     if(vec[i].estado == OCUPADO && vec[i].sueldo >= promedio){
 
-        mostrarE(vec[i]);
+        mostrarE(vec[i],vecSec,tamSec);
     }
 }
 }
@@ -392,3 +442,186 @@ void formatearNombre(eEmpleado vec[], int tam, int indice){
     strlwr(vec[indice].apellido);
     vec[indice].apellido[0]=toupper(vec[indice].apellido[0]);
 }
+//************************************************MOSTRAR EMPLEADOS****************************************************************************
+void menuMostrarE(eEmpleado vec[], int tam, eSector vecSec[],int tamSec){
+
+    int opcion;
+    do{
+        system("pause");
+        system("cls");
+        printf("\nIngrese una opcion: ");
+        printf("\n1.Mostrar todos empleados .");
+        printf("\n2.Mostrar empleados ordenados por sector.");
+        printf("\n3.Mostrar empleados ordenados por legajo.");
+        printf("\n4.Mostrar empleados por orden alfabetico.");
+        printf("\n5.Mostrar empleados por sector alfabeticamente.");
+        printf("\n6.Mostrar empleados por sector y en orden de legajo.");
+        printf("\n7.Mostrar empleados de sexo masculino ordenados alfabeticamente.");
+        printf("\n8.Mostrar empleados de sexo femenimo ordenados por legajo.");
+        printf("\n9.Mostrar empleados ordenados por sector, legajo y sexo.");
+        printf("\n10.Salir .\n");
+       scanf("%d", &opcion);
+
+       switch(opcion){
+
+        case 1:
+            mostrarEs(vec,tam,vecSec,tamSec);
+            break;
+        case 2:
+            empleadosPorSector(vec,tam,vecSec,tamSec);
+            break;
+        case 3:
+            empleadosPorLegajo(vec,tam,vecSec,tamSec);
+            break;
+        case 4:
+            empleadosAlfabeticamente(vec,tam,vecSec,tamSec);
+            break;
+        case 5:
+            empleadosPorSectorYAlfa(vec,tam,vecSec,tamSec);
+            break;
+        case 6:
+            empleadosPorSectorYLegajo(vec,tam,vecSec,tamSec);
+            break;
+        case 7:
+            empleadosMasculinoAlfa(vec,tam,vecSec,tamSec);
+            break;
+        case 8:
+            empleadosFemenimoPorlegajo(vec,tam,vecSec,tamSec);
+            break;
+        case 9:
+            printf("\nNo tiene sentido hacer eso.");
+            break;
+        case 10:
+            printf("\nSaliendo...\n");
+            break;
+        default:
+            printf("\nIngrese una opcion correcta. ");
+            break;
+       }
+
+    }while(opcion != 10);
+}
+//***********************************************************************************************************************
+void empleadosPorLegajo(eEmpleado vec[], int tam, eSector vecSec[],int tamSec){
+
+    eEmpleado aux;
+    for(int i= 0; i < tam - 1 ; i++){
+        for(int j = 1; j <tam ; j++){
+
+            if(vec[i].legajo > vec[j].legajo){
+                aux = vec[i];
+                vec[i] = vec[j];
+                vec[j] = aux;
+            }
+        }
+    }
+    mostrarEs(vec,tam,vecSec,tamSec);
+}
+//**********************************************************************************************************************
+void empleadosAlfabeticamente(eEmpleado vec[], int tam, eSector vecSec[], int tamSec){
+    eEmpleado aux;
+    for(int i= 0; i < tam - 1 ; i++){
+        for(int j = 1; j <tam ; j++){
+
+            if(strcmp(vec[i].apellido,vec[j].apellido) < 0){
+                aux = vec[i];
+                vec[i] = vec[j];
+                vec[j] = aux;
+            }
+        }
+    }
+    mostrarEs(vec,tam,vecSec,tamSec);
+}
+//**********************************************************************************************************************
+void empleadosPorSectorYAlfa (eEmpleado vec[], int tam, eSector vecSec[], int tamSec){
+    eEmpleado aux;
+        for(int i= 0; i < tam - 1 ; i++){
+            for(int j = 1; j <tam ; j++){
+
+            if(vec[i].sector > vec[j].sector){
+                aux = vec[i];
+                vec[i] = vec[j];
+                vec[j] = aux;
+            }
+        }
+    }
+    for(int i = 0; i< tam-1 ; i++ ){
+        for(int j = 1; j< tam; j++){
+            if(vec[i].sector == vec[j].sector){
+                if(strcmp(vec[i].apellido,vec[j].apellido) < 0){
+                aux = vec[i];
+                vec[i] = vec[j];
+                vec[j] = aux;
+                }
+            }
+        }
+    }
+    mostrarEs(vec,tam,vecSec,tamSec);
+}
+//****************************************************************************************
+void empleadosPorSectorYLegajo(eEmpleado vec[], int tam, eSector vecSec[], int tamSec){
+
+    eEmpleado aux;
+        for(int i= 0; i < tam - 1 ; i++){
+            for(int j = 1; j <tam ; j++){
+
+            if(vec[i].sector > vec[j].sector){
+                aux = vec[i];
+                vec[i] = vec[j];
+                vec[j] = aux;
+            }
+        }
+    }
+    for(int i = 0; i< tam-1 ; i++ ){
+        for(int j = 1; j< tam; j++){
+            if(vec[i].sector == vec[j].sector){
+                if(vec[i].legajo < vec[j].legajo){
+                aux = vec[i];
+                vec[i] = vec[j];
+                vec[j] = aux;
+                }
+            }
+        }
+    }
+    mostrarEs(vec,tam,vecSec,tamSec);
+}
+//******************************************************************************************************
+void empleadosMasculinoAlfa(eEmpleado vec[], int tam, eSector vecSec[], int tamSec){
+
+    eEmpleado aux;
+
+    for(int i = 0; i< tam-1 ; i++ ){
+        for(int j = 1; j< tam; j++){
+                if(strcmp(vec[i].apellido,vec[j].apellido) < 0){
+                aux = vec[i];
+                vec[i] = vec[j];
+                vec[j] = aux;
+                }
+        }
+    }
+    for(int i = 0; i<tam ; i++){
+        if( vec[i].sexo == 'm'){
+            mostrarE(vec[i],vecSec,tamSec);
+        }
+    }
+}
+//*******************************************************************************************************
+void empleadosFemenimoPorlegajo(eEmpleado vec[], int tam, eSector vecSec[], int tamSec){
+     eEmpleado aux;
+    for(int i= 0; i < tam - 1 ; i++){
+        for(int j = 1; j <tam ; j++){
+
+            if(vec[i].legajo > vec[j].legajo){
+                aux = vec[i];
+                vec[i] = vec[j];
+                vec[j] = aux;
+            }
+        }
+    }
+    for(int i = 0; i<tam ; i++){
+        if( vec[i].sexo == 'f'){
+            mostrarE(vec[i],vecSec,tamSec);
+        }
+    }
+}
+//*****************************************************************************************************

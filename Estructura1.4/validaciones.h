@@ -6,27 +6,6 @@
 #define TAM 7
 #define OCUPADO 1
 #define VACIO 0
-
-/**
-\brief
- *Retorna 1 si num esta entre min y max.
- *Retorna -1 si num no esta entre min y max
- * \param  num int
- * \param  min int
- * \param  max int
- * \return int
-**/
-int validarInt(int num,int min,int max);
-//*****************************************************
-/**
-*Retorna 1 si num esta entre min y max
-*Retorna -1 si num no esta entre min y max
-* \param   num  float
-* \param   min  float
-* \param   max  float
-* \return  int
-**/
-int validarFloat(float num, float min, float max);
 //****************************************************
 /**
 *Retorna 1 si nombre es una cadena con caracteres alfabeticos
@@ -35,4 +14,24 @@ int validarFloat(float num, float min, float max);
 * \return  int
 **/
 int validarNombre(char nombre[]);
+//****************************************************
+/**
+**/
+int isDigit(char numero[]);
+//****************************************************
+/**
+**/
+float charToFloat(char numero[]);
+//****************************************************
+/**
+**/
+int charToInt(char numero[]);
+//**************************************************
+/**
+**/
+int validarFloat(int min, int max, char num[]);
+//**************************************************
+/**
+**/
+int validarInt(int min, int max ,char num[]);
 //****************************************************
