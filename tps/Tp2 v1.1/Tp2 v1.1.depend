@@ -1,0 +1,57 @@
+# depslib dependency file v1.0
+1557320423 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\tp2 v1.1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1556818126 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\tp2 v1.1\validaciones.c
+	"validaciones.h"
+
+1557321756 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\tp2 v1.1\validaciones.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1557321583 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\tp2 v1.1\tp2.c
+	"tp2.h"
+	"validaciones.h"
+
+1557322513 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\tp2 v1.1\tp2.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1557409206 source:c:\users\user\desktop\cursoc\tp2 v1.1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1557409206 source:c:\users\user\desktop\cursoc\tp2 v1.1\tp2.c
+	"tp2.h"
+	"validaciones.h"
+
+1557409206 c:\users\user\desktop\cursoc\tp2 v1.1\tp2.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1557409206 c:\users\user\desktop\cursoc\tp2 v1.1\validaciones.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1557409206 source:c:\users\user\desktop\cursoc\tp2 v1.1\validaciones.c
+	"validaciones.h"
+

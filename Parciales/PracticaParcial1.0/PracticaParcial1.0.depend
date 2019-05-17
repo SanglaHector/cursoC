@@ -1,0 +1,106 @@
+# depslib dependency file v1.0
+1558026163 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\clientes.c
+	"Clientes.h"
+
+1558025954 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\clientes.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1558115276 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\fecha.c
+	"fecha.h"
+
+1558114622 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\fecha.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1558027046 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\auto.c
+	"auto.h"
+
+1558027054 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\auto.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1558026533 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\marca.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1558120808 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\colores.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1558121320 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\colores.c
+	"Colores.h"
+
+1558026533 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\marca.c
+	"Marca.h"
+
+1558026210 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\servicios.c
+	"Servicios.h"
+
+1558025774 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\servicios.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1558114280 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\validaciones.c
+	"validaciones.h"
+
+1558114296 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\validaciones.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1558120808 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"ABM.h"
+
+1558115689 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\abm.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"Colores.h"
+	"Servicios.h"
+	"validaciones.h"
+	"Marca.h"
+	"auto.h"
+	"Trabajo.h"
+
+1558027114 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\trabajo.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"fecha.h"
+
+1558119571 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\abm.c
+	"ABM.h"
+
+1558027158 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\trabajo.c
+	"Trabajo.h"
+

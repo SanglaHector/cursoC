@@ -1,0 +1,85 @@
+# depslib dependency file v1.0
+1557338547 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\estructura1.4\estructura1.4.c
+	"Estructura1.4.h"
+
+1557338506 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\estructura1.4\estructura1.4.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1557336229 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\estructura1.4\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1557338636 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\estructura1.4\sector.c
+	"Sector.h"
+
+1557338070 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\estructura1.4\sector.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1557338633 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\estructura1.4\almuerzo.c
+	"Almuerzo.h"
+
+1557338488 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\estructura1.4\almuerzo.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1557440980 source:c:\users\user\desktop\cursoc\estructura1.4\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1557436499 source:c:\users\user\desktop\cursoc\estructura1.4\validaciones.c
+	"validaciones.h"
+
+1557426680 c:\users\user\desktop\cursoc\estructura1.4\validaciones.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1557410900 source:c:\users\user\desktop\cursoc\estructura1.4\almuerzo.c
+	"Almuerzo.h"
+
+1557410903 c:\users\user\desktop\cursoc\estructura1.4\almuerzo.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1557410877 source:c:\users\user\desktop\cursoc\estructura1.4\sector.c
+	"Sector.h"
+
+1557411398 c:\users\user\desktop\cursoc\estructura1.4\sector.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1557443817 source:c:\users\user\desktop\cursoc\estructura1.4\estructura1.4.c
+	"Estructura1.4.h"
+
+1557442811 c:\users\user\desktop\cursoc\estructura1.4\estructura1.4.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
