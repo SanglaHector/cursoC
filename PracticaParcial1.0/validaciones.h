@@ -43,4 +43,8 @@ void validarPatente(char patenteCar[],char patenteNum[], char patente[]);
 **/
 int isChar( char aux[]);
 //********
+/**
+**/
+void formatearNombre(char vec[]);
+//********************************
 

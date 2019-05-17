@@ -9,10 +9,10 @@
 	<conio.h>
 	<ctype.h>
 
-1558025859 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\fecha.c
+1558115276 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\fecha.c
 	"fecha.h"
 
-1558029086 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\fecha.h
+1558114622 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\fecha.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -36,14 +36,14 @@
 	<conio.h>
 	<ctype.h>
 
-1558026574 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\colores.h
+1558120808 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\colores.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
 	<ctype.h>
 
-1558026583 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\colores.c
+1558121320 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\colores.c
 	"Colores.h"
 
 1558026533 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\marca.c
@@ -59,17 +59,17 @@
 	<conio.h>
 	<ctype.h>
 
-1558025652 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\validaciones.c
+1558114280 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\validaciones.c
 	"validaciones.h"
 
-1558025672 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\validaciones.h
+1558114296 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\validaciones.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
 	<ctype.h>
 
-1558025500 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\main.c
+1558120808 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -77,7 +77,7 @@
 	<ctype.h>
 	"ABM.h"
 
-1558029277 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\abm.h
+1558115689 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\abm.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -98,7 +98,7 @@
 	<ctype.h>
 	"fecha.h"
 
-1558027167 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\abm.c
+1558119571 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\abm.c
 	"ABM.h"
 
 1558027158 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\trabajo.c

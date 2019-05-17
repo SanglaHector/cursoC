@@ -11,5 +11,32 @@ typedef struct{
     char descripcion[20];
     int estado;
 }eColor;
-
-
+//*
+/**
+**/
+void programaColores(eColor vecCol[], int tamCol);
+//************************************************
+/**
+**/
+void altaColores(eColor vecCol[], int tamCol);
+//************************************************
+/**
+**/
+int generarIdCol();
+//************************************************
+/**
+**/
+int buscarLibreCol(eColor vec[], int tam);
+//************************************************
+/**
+**/
+void pedirDatosCol(eColor vecCol[], int tamCol, int indice);
+//************************************************
+/**
+**/
+void mostrarCol(eColor vecCol, int tamCol);
+//************************************************
+/**
+**/
+void inicializarColores(eColor vec[] , int tam);
+//***********************************************

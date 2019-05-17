@@ -69,3 +69,4 @@ void mostrarTrabajo(eTrabajo vecTra, eServicio vecSer[], int tamSer);
 **/
 void altaTrabajo(eAuto vec[], int tam,eServicio vecSer[], int tamSer,eTrabajo vecTra[], int tamTra);
 //*********************************
+

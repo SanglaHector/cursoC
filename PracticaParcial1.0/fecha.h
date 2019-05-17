@@ -14,7 +14,7 @@ typedef struct{
 
 /**
 **/
-int validarFecha(int dia, intmes, int anio);
+int validarFecha(int dia, int mes, int anio);
 //*******************************************
 /**
 **/

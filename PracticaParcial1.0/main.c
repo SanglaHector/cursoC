@@ -32,6 +32,7 @@ int main()
     eTrabajo trabajos[TAMTRA];
     inicializarE(autos,TAM);
     inicializarTrabajos(trabajos,TAMTRA);
+    inicializarColores(colores,TAMCOL);
     hardCodearAutos(autos,7);
     hardCodearTrabajos(trabajos,7);
 do
@@ -40,12 +41,12 @@ do
         printf("1-Alta auto\n");
         printf("2-Modificar auto\n");
         printf("3-Baja auto\n");
-        printf("4-Listar autos\n");
-        printf("5-Listar marcas\n");
-        printf("6.Listar colores\n");
-        printf("7.Listar servicios\n");
-        printf("8.Alta trabajo\n");
-        printf("9.Listar trabajo\n");
+        printf("4-Programa colores\n");
+        printf("5-Programa marcas\n");
+        printf("6.Programa servicios\n");
+        printf("7.Programa trabajos\n");
+        printf("8.Programa clientes\n");
+        printf("9.Listados\n");
         printf("10-Salir\n");
         printf("Ingrese una opcion: ");
         fflush(stdin);
@@ -73,52 +74,23 @@ do
             }
             break;
         case 4:
-             vacio = buscarLleno(autos,TAM);
-            if( vacio == OCUPADO){
-                listarAutos(autos,TAM,marcas,TAMMAR,colores,TAMCOL);
-            }else {
-            printf("\nDebe ingresar un usuario antes de ingresar a esta opcion.\n");
-            }
+
+            programaColores(colores,TAMCOL);
             break;
         case 5:
-            vacio = buscarLleno(autos,TAM);
-            if( vacio == OCUPADO){
-                listarMarcas(autos,TAM,marcas,TAMMAR,colores,TAMCOL);
-            }else {
-            printf("\nDebe ingresar un usuario antes de ingresar a esta opcion.\n");
-            }
+
             break;
         case 6:
-            vacio = buscarLleno(autos,TAM);
-            if( vacio == OCUPADO){
-                listarColores(autos,TAM,marcas,TAMMAR,colores,TAMCOL);
-            }else {
-            printf("\nDebe ingresar un usuario antes de ingresar a esta opcion.\n");
-            }
+
             break;
         case 7:
-             vacio = buscarLleno(autos,TAM);
-            if( vacio == OCUPADO){
-                listarServicios(servicios,TAMSER);
-            }else {
-            printf("\nDebe ingresar un usuario antes de ingresar a esta opcion.\n");
-            }
+
             break;
         case 8:
-            vacio = buscarLleno(autos,TAM);
-            if( vacio == OCUPADO){
-                altaTrabajo(autos,TAM,servicios,TAMSER,trabajos,TAMTRA);
-            }else {
-            printf("\nDebe ingresar un usuario antes de ingresar a esta opcion.\n");
-            }
+
             break;
         case 9:
-            vacio = buscarLleno(autos,TAM);
-            if( vacio == OCUPADO){
-                mostrarTrabajos(trabajos,TAMTRA,servicios,TAMSER);
-            }else {
-            printf("\nDebe ingresar un usuario antes de ingresar a esta opcion.\n");
-            }
+
             break;
         case 10:
             printf("Hasta luego!\n");

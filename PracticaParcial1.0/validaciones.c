@@ -114,4 +114,10 @@ int isChar(char aux[]){
     }
     return validar;
 }
+//***********************************************
+void formatearNombre(char vec[]){
 
+    strlwr(vec);
+    vec[0]=toupper(vec[0]);
+}
+//***********************************************
