@@ -34,9 +34,25 @@ void pedirDatosCol(eColor vecCol[], int tamCol, int indice);
 //************************************************
 /**
 **/
-void mostrarCol(eColor vecCol, int tamCol);
+void mostrarCol(eColor vecCol);
 //************************************************
 /**
 **/
 void inicializarColores(eColor vec[] , int tam);
+//***********************************************
+/**
+**/
+void modificarColor(eColor vec[], int TAM);
+//************************************************
+/**
+**/
+void bajaColor(eColor vec[], int tam);
+//************************************************
+/**
+**/
+void hardCodearColores(eColor vec[], int tam);
+//***********************************************
+/**
+**/
+void mostrarColores(eColor vec[], int tam);
 //***********************************************

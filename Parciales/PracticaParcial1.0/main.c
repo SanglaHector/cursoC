@@ -5,10 +5,10 @@
 #include <ctype.h>
 #include "ABM.h"
 #define TAM 1000
-#define TAMMAR 5
+#define TAMMAR 10
 #define TAMTRA 1000
-#define TAMCOL 5
-#define TAMSER 4
+#define TAMCOL 10
+#define TAMSER 10
 #define OCUPADO 1
 #define VACIO 0
 
@@ -16,25 +16,24 @@ int main()
 {
     int opcion;
     int vacio;
-        //***********************************
-    eMarca marcas[] ={
-        {1000,"Renault",1},{1001,"Fiat",1},{1002,"Ford",1},{1003,"Chevrolet",1},{1004,"Peugeot",1}
-        };
-        //************************************
-    eColor colores[] ={
-        {5000,"Negro",1},{5001,"Blanco",1},{5002,"Gris",1},{5003,"Rojo"},{5004,"Azul",1}
-    };
-        //***********************************
-    eServicio servicios[] = {{20000,"Lavado",250,1},{20001,"Pulido",300,1},{20002,"Encerado",400},1,{20003,"Completo",600,1}
-    };
-        //**********************************
+//******************************************************
     eAuto autos[TAM];
     eTrabajo trabajos[TAMTRA];
+    eColor colores[TAMCOL];
+    eMarca marcas[TAMMAR];
+    eServicio servicios[TAMSER];
     inicializarE(autos,TAM);
     inicializarTrabajos(trabajos,TAMTRA);
     inicializarColores(colores,TAMCOL);
+    inicializarMarcas(marcas,TAMMAR);
+    inicializarServicios(servicios,TAMSER);
+//************AREA DE PRUEBA ****************************
     hardCodearAutos(autos,7);
     hardCodearTrabajos(trabajos,7);
+    hardCodearColores(colores,5);
+    hardCodearMarcas(marcas,5);
+    hardCodearServicios(servicios,4);
+//******************************************************
 do
     {
 
@@ -78,10 +77,10 @@ do
             programaColores(colores,TAMCOL);
             break;
         case 5:
-
+            programaMarcas(marcas,TAMMAR);
             break;
         case 6:
-
+            programaServicios(servicios,TAMSER);
             break;
         case 7:
 

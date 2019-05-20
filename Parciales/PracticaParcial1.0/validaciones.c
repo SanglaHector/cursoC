@@ -121,3 +121,13 @@ void formatearNombre(char vec[]){
     vec[0]=toupper(vec[0]);
 }
 //***********************************************
+int validarSexo(char sexo){
+
+sexo = toupper(sexo);
+if( sexo != 'M' && sexo != 'F'){
+    return -1;
+}else {
+    return 1;
+}
+
+}

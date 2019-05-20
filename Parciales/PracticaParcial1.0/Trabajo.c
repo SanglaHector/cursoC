@@ -39,4 +39,4 @@ void hardCodearTrabajos(eTrabajo vec[], int tam){
         vec[i] = ficticios[i];
     }
 }
-
+//******************************************************

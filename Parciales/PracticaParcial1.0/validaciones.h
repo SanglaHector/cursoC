@@ -3,7 +3,6 @@
 #include <string.h>
 #include <conio.h>
 #include <ctype.h>
-#define TAM 7
 #define OCUPADO 1
 #define VACIO 0
 //****************************************************
@@ -47,4 +46,7 @@ int isChar( char aux[]);
 **/
 void formatearNombre(char vec[]);
 //********************************
-
+/**
+**/
+int validarSexo(char sexo);
+//*********************************

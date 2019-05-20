@@ -12,3 +12,47 @@ typedef struct{
     int estado;
 }eMarca;
 
+/**
+**/
+void programaMarcas(eMarca vecMar[], int tamMar);
+//************************************************
+/**
+**/
+void altaMarcas(eMarca vecMar[], int tamMar);
+//************************************************
+/**
+**/
+int generarIdMarca();
+//************************************************
+/**
+**/
+int buscarLibreMacar(eMarca vec[], int tam);
+//************************************************
+/**
+**/
+void pedirDatosMarca(eMarca vecMar[], int tamMar, int indice);
+//************************************************
+/**
+**/
+void mostrarMarca(eMarca vecMar);
+//************************************************
+/**
+**/
+void inicializarMarcas(eMarca vec[] , int tam);
+//***********************************************
+/**
+**/
+void modificarMarca(eMarca vec[],  int tam);
+//************************************************
+/**
+**/
+void bajaMarca(eMarca vec[], int tam);
+//************************************************
+/**
+**/
+void hardCodearMarcas(eMarca vec[], int tam);
+//***********************************************
+/**
+**/
+void mostrarMarcas(eMarca vec[], int tam);
+//***********************************************

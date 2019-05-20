@@ -19,7 +19,7 @@
 	<conio.h>
 	<ctype.h>
 
-1558027046 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\auto.c
+1558376855 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\auto.c
 	"auto.h"
 
 1558027054 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\auto.h
@@ -29,47 +29,47 @@
 	<conio.h>
 	<ctype.h>
 
-1558026533 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\marca.h
+1558376222 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\marca.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
 	<ctype.h>
 
-1558120808 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\colores.h
+1558375925 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\colores.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
 	<ctype.h>
 
-1558121320 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\colores.c
+1558375971 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\colores.c
 	"Colores.h"
 
-1558026533 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\marca.c
+1558376273 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\marca.c
 	"Marca.h"
 
-1558026210 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\servicios.c
+1558375266 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\servicios.c
 	"Servicios.h"
 
-1558025774 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\servicios.h
+1558372692 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\servicios.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
 	<ctype.h>
 
-1558114280 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\validaciones.c
+1558381395 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\validaciones.c
 	"validaciones.h"
 
-1558114296 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\validaciones.h
+1558380454 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\validaciones.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
 	<ctype.h>
 
-1558120808 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\main.c
+1558367531 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -98,9 +98,9 @@
 	<ctype.h>
 	"fecha.h"
 
-1558119571 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\abm.c
+1558370504 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\abm.c
 	"ABM.h"
 
-1558027158 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\trabajo.c
+1558376568 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\practicaparcial1.0\trabajo.c
 	"Trabajo.h"
 
