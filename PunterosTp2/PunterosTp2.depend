@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1558701200 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\punterostp2\validacionespunteros.c
+	"validacionesPunteros.h"
+
+1558619420 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\punterostp2\validacionespunteros.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1558719494 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\punterostp2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"punteros.h"
+
+1558719454 c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\punterostp2\punteros.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1558723914 source:c:\users\e5a8013\desktop\espacio de estudio\programacion i 2018\ejercicios programacion\ejercicios\punterostp2\punteros.c
+	"punteros.h"
+	"validacionesPunteros.h"
+
