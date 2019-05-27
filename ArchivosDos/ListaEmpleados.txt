@@ -1,0 +1,5 @@
+Id nombre apellido sueldo
+
+ 1111 juan perez 20000
+
+ 2222 ana gomez 50000
