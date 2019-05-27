@@ -242,7 +242,7 @@ void hardCodearServicios(eServicio vec[], int tam){
 //******************************************************************************
 void mostrarServicios(eServicio vec[], int tam){
 
-    printf(" Servicio:   Precio:       Id:");
+    printf("\n Servicio:   Precio:       Id:");
     for(int i = 0; i < tam ; i ++){
         if(vec[i].estado == OCUPADO){
             mostrarServicio(vec[i]);

@@ -7,7 +7,7 @@
 #define TAM 1000
 #define TAMMAR 10
 #define TAMTRA 1000
-#define TAMCOL 10
+#define TAMCOL 100
 #define TAMSER 10
 #define TAMCLI 10
 #define OCUPADO 1

@@ -211,7 +211,7 @@ void hardCodearMarcas(eMarca vec[], int tam){
 //***************************************************************************
 void mostrarMarcas(eMarca vec[], int tam){
 
-    printf("    Marca:       Id:\n");
+    printf("\n    Marca:       Id:\n");
     for(int i = 0; i < tam ; i ++){
         if(vec[i].estado == OCUPADO){
             mostrarMarca(vec[i]);

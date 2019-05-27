@@ -80,9 +80,10 @@ void programaTrabajos(eTrabajo vecTra[], int tamTra, eAuto vecAuto[], int tamAut
 //***********************************
 /**
 **/
-void modificarTrabajo(eTrabajo vec[],  int tam, eServicio vecSer[], int tamSer);
+void modificarTrabajo(eTrabajo vec[],  int tam, eServicio vecSer[], int tamSer, eAuto vecAuto[], int tamAuto);
 //************************************************
 /**
 **/
 void bajaTrabajo(eTrabajo vec[], int tam, eServicio vecSer[], int tamSer);
 //************************************************
+//

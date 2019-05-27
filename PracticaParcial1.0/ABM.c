@@ -20,6 +20,7 @@ void altaE(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor colVec[],int
 void pedirDatos(eAuto vec[], int tam, int indice, eMarca vecMar[], int tamMAr, eColor vecCol[], int tamCol){
     int validar = -1;
     char aux[50];
+    int auxInt;
     char patenteNum[6];
     char patenteCar[3];
     char patente[6];
@@ -95,11 +96,7 @@ void pedirDatos(eAuto vec[], int tam, int indice, eMarca vecMar[], int tamMAr, e
     validar = -1;
     while(validar == -1){
             printf("\nIngrese un codigo de marca");
-            printf("\n1000.Renault");
-            printf("\n1001.Fiat");
-            printf("\n1002.Ford");
-            printf("\n1003.Chevrolet :");
-            printf("\n1004.Peugeot :");
+            mostrarMarcas(vecMar,tamMAr);
             scanf("%s", aux);
             validar = validarInt(1000,1004,aux);
             if(validar == -1){
@@ -112,13 +109,20 @@ void pedirDatos(eAuto vec[], int tam, int indice, eMarca vecMar[], int tamMAr, e
     validar = -1;
     while(validar == -1){
             printf("\nIngrese un codigo de color");
-            printf("\n5000.Negro");
-            printf("\n5001.Blanco");
-            printf("\n5002.Gris");
-            printf("\n5003.Rojo :");
-            printf("\n5004.Azul\n :");
-            scanf("%s", aux);
-            validar = validarInt(5000,5004,aux);
+            mostrarColores(vecCol,tamCol);
+            fflush(stdin);
+            scanf("%d", auxInt);
+            fflush(stdin);
+            validar = -1;
+            for(int i = 0; i < tamCol; i++)
+            {
+                if(vecCol[i].estado == OCUPADO && vecCol[i].id == auxInt)
+                {
+                    validar = 1;
+                    printf("\nValidar: %d",validar);
+                    break;
+                }
+            }
             if(validar == -1){
                 printf("\nPor favor ingrese una opcion correcta.");
             }
@@ -358,7 +362,7 @@ void altaTrabajo(eAuto vec[], int tam,eServicio vecSer[], int tamSer,eTrabajo ve
             vecTra[indice].estado = OCUPADO;
             vecTra[indice].id = generarIdTra();
             printf("\nTrabajo ingresado con exito: \n");
-            printf("  Patente: Servicio:       Id:  Fecha:\n");
+            printf("\n  Patente:    Id:   Fecha:      Servicio:    Precio:\n");
             mostrarTrabajo(vecTra[indice],vecSer,tamSer);
         }
 }
@@ -415,36 +419,27 @@ validar = -1;
     while( validar == -1){
             printf("\nIngrese anio de ingreso: ");
             scanf("%d", &auxTra.fecha.anio);
-            validar = validarInt(auxTra.fecha.anio,1900,2100);
-            if( validar == -1){
 
-             printf("\nEl año de ingreso debe estar entre 1900 y 2100.");
-            }
-            }
-            validar = -1;
-    while( validar == -1){
             printf("\nIngrese mes de ingreso: ");
             scanf("%d", &auxTra.fecha.mes);
-            validar = validarInt(auxTra.fecha.mes,1,12);
-            if( validar == -1){
 
-             printf("\nEl mes de ingreso es incorrecto.");
-            }
-    }
-            validar = -1;
-     while( validar == -1){
             printf("\nIngrese dia de ingreso: ");
             scanf("%d", &auxTra.fecha.dia);
-            validar = validarInt(auxTra.fecha.dia,1,31);
 
+            validar = validarFecha(auxTra.fecha.dia,auxTra.fecha.mes,auxTra.fecha.anio);
             if( validar == -1){
-             printf("\nEl dia de ingreso es incorrecto.");
+             printf("\nLa fecha de ingreso no existe.");
+            }else if(validar == -2)
+            {
+                printf("\nEl año debe estar dentro del rango de 1900 y 2020");
+            }
+            else
+            {
+                vecTra[indice].fecha.anio = auxTra.fecha.anio;
+                vecTra[indice].fecha.mes = auxTra.fecha.mes;
+                vecTra[indice].fecha.dia = auxTra.fecha.dia;
             }
      }
-vecTra[indice].fecha.anio = auxTra.fecha.anio;
-vecTra[indice].fecha.mes = auxTra.fecha.mes;
-vecTra[indice].fecha.dia = auxTra.fecha.dia;
-
 }
 //**********************************************************************************
 int generarIdTrabajos()
@@ -455,7 +450,7 @@ int generarIdTrabajos()
 }
 //**********************************************************************************
 void mostrarTrabajos(eTrabajo vecTra[], int tamTra, eServicio vecSer[], int tamSer){
-
+            printf("\n  Patente:    Id:   Fecha:      Servicio:    Precio:\n");
     for(int i = 0; i<tamTra; i++){
 
         if(vecTra[i].estado == OCUPADO){
@@ -473,11 +468,11 @@ void mostrarTrabajo(eTrabajo vecTra, eServicio vecSer[], int tamSer){
             precio = vecSer[i].precio;
         }
     }
-    printf("\n%10s ",servicio);
-    printf("%.2f ",precio);
-    printf("%10s ",vecTra.patente);
-    printf("%10d", vecTra.id);
-    printf("%02d/%02d/%02d .",vecTra.fecha.dia,vecTra.fecha.mes,vecTra.fecha.anio);
+    printf("\n%10s ",vecTra.patente);
+    printf("  %04d ", vecTra.id);
+    printf("  %02d/%02d/%02d",vecTra.fecha.dia,vecTra.fecha.mes,vecTra.fecha.anio);
+    printf("  %10s ",servicio);
+    printf("  %.2f \n",precio);
 
 }
 //****************************************************************************************
@@ -501,7 +496,7 @@ do
             altaTrabajo(vecAuto,tamAuto,vecSer,tamSer,vecTra,tamTra);
             break;
         case 2:
-            modificarTrabajo(vecTra,tamTra,vecSer,tamSer);
+            modificarTrabajo(vecTra,tamTra,vecSer,tamSer,vecAuto,tamAuto);
             break;
         case 3:
             bajaTrabajo(vecTra,tamTra,vecSer,tamSer);
@@ -521,9 +516,8 @@ do
 
 }
 //**************************************************************************************************************
-void modificarTrabajo(eTrabajo vec[],  int tam, eServicio vecSer[], int tamSer){
+void modificarTrabajo(eTrabajo vec[],  int tam, eServicio vecSer[], int tamSer, eAuto vecAuto[], int tamAuto){
     eTrabajo aux;
-    char aux[20];
     int id;
     int validar = -1;
     int indice ;
@@ -533,11 +527,11 @@ void modificarTrabajo(eTrabajo vec[],  int tam, eServicio vecSer[], int tamSer){
     {
         printf("\nIngrese el id del Trabajo que quiera modificar: ");
         fflush(stdin);
-        scanf("%s", aux.nombre);
-        validar = validarInt(0,9999,aux);//uso este
+        scanf("%s", aux.patente);
+        validar = validarInt(0,9999,aux.patente);//uso este
         if ( validar == 1)
         {
-            id = atoi(aux.nombre);
+            id = atoi(aux.patente);
         }
         else
         {
@@ -552,61 +546,91 @@ void modificarTrabajo(eTrabajo vec[],  int tam, eServicio vecSer[], int tamSer){
                 indice = i;
             }
         }
+        strcpy(aux.patente," ");
     if (validar == 1)
     {
         do
         {
             printf("\nIngrese la opcion que quiera modificar: ");
-            printf("\n1. Nombre ");
-            printf("\n2. Apellido ");
-            printf("\n3. Sexo ");
+            printf("\n1. Patente ");
+            printf("\n2. Servicio ");
+            printf("\n3. Fecha ");
             scanf("%d", &opcion);
             switch(opcion)
             {
             case 1:
+                validar = -1;
                 while ( validar == -1){
-                     printf("\nIngrese el nobmre del Trabajo: ");
+                     printf("\nIngrese la patente del auto a la cual se le designo el Trabajo: ");
                      fflush(stdin);
-                     gets(aux.nombre);
+                     gets(aux.patente);
                      fflush(stdin);
-                     validar = validarNombre(aux.nombre);
+                     validar = -1;
+                     for(int i = 0; i < tamAuto; i ++)
+                     {
+                         if(strcmpi(aux.patente,vecAuto[i].patente) == 0)
+                         {
+                            validar = 1;
+                            break;
+                         }
+                     }
                      if (validar == -1){
-                       printf("\nPor favor solo ingrese digitos afabeticos.");
+                       printf("\nLa patente ingresada no se encuetra dada de alta en el sistema.");
                      }else
                      {
-                         strcpy(vec[indice].nombre, aux.nombre);
+                         strcpy(vec[indice].patente, aux.patente);
                      }
                 }
                 break;
             case 2:
+                validar =-1;
                 while ( validar == -1){
 
-                    printf("\nIngrese el apellido del Trabajo: ");
+                    mostrarServicios(vecSer,tamSer);
+                    printf("\nIngrese el id del  servicio del Trabajo: ");
                     fflush(stdin);
-                    gets(aux.apellido);
+                    scanf("%d", &aux.idServicio);
                     fflush(stdin);
-                    validar = validarNombre(aux.apellido);
+                    validar = -1;
+                    for(int i = 0; i < tamSer; i++)
+                    {
+                        if(aux.idServicio == vecSer[i].id)
+                        {
+                            validar = 1;
+                        }
+                    }
                     if (validar == -1){
-                        printf("\nPor favor solo ingrese digitos afabeticos.");
+                        printf("\nPor favor ingrese un id corecto.");
                     }else
                     {
-                        strcpy(vec[indice].apellido, aux.apellido);
+                        vec[indice].idServicio = aux.idServicio;
                     }
                 }
                 break;
             case 3:
+                validar =-1;
                 while ( validar == -1){
 
-                    printf("\nIngrese el sexo del Trabajo: ");
+                    printf("\nIngrese la nueva fecha: ");
+                    printf("\nIngrese el dia: ");
                     fflush(stdin);
-                    scanf("%c", &aux.sexo);
+                    scanf("%d",&aux.fecha.dia);
                     fflush(stdin);
-                    validar = validarSexo(aux.sexo);
+                    printf("\nIngrese el mes: ");
+                    scanf("%d",&aux.fecha.mes);
+                    fflush(stdin);
+                    printf("\nIngrese el anio: ");
+                    scanf("%d",&aux.fecha.anio);
+
+                    validar = validarFecha(aux.fecha.dia,aux.fecha.mes,aux.fecha.anio);
+
                     if (validar == -1){
-                        printf("\nPor favor solo ingrese los digitos M o F.");
+                        printf("\nPor favor ingrese una fecha correcta.");
                     }else
                     {
-                        vec[indice].sexo = aux.sexo;
+                        vec[indice].fecha.dia = aux.fecha.dia;
+                        vec[indice].fecha.mes = aux.fecha.mes;
+                        vec[indice].fecha.anio = aux.fecha.anio;
                     }
                 }
                 break;
@@ -646,7 +670,7 @@ void bajaTrabajo(eTrabajo vec[], int tam, eServicio vecSer[], int tamSer){
         printf("\nLa baja se genero correctamente!\n");
         vec[indice].estado = VACIO;
     }else {
-        printf("\nNo existe el id: '%d' o no esta dado de alta.\n",id );
+        printf("\nEl id ingresado no esta dado de alta en el sistema.\n");
     }
 }
 //************************************************************************
