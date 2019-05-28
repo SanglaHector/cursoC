@@ -65,7 +65,10 @@ int main()
     }
     fclose(f);
 
-    for(int i = 0;)
+    for(int i = 0; i < cont ; i++)
+    {
+        printf(" %5d %15s %15s %8.2f\n", (lista+ i)->id,(lista+ i)->nombre,(lista+ i)->apellido,(lista+ i)->sueldo);
+    }
 
     return 0;
 }
