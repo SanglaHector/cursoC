@@ -88,6 +88,7 @@ int validar = -1;
 
 while(validar == -1){
 
+    mostrarServicios(vecSer,tamSer);
     printf("\nIngrese un servicio: ");
     fflush(stdin);
     gets(aux);

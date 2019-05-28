@@ -125,7 +125,7 @@
 	<conio.h>
 	<ctype.h>
 
-1558917299 source:c:\users\sangl\desktop\26\05\19\practicaparcial1.0\colores.c
+1558918975 source:c:\users\sangl\desktop\26\05\19\practicaparcial1.0\colores.c
 	"Colores.h"
 
 1558843453 c:\users\sangl\desktop\26\05\19\practicaparcial1.0\colores.h
@@ -145,7 +145,7 @@
 	<conio.h>
 	<ctype.h>
 
-1558843453 source:c:\users\sangl\desktop\26\05\19\practicaparcial1.0\main.c
+1558918430 source:c:\users\sangl\desktop\26\05\19\practicaparcial1.0\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -196,7 +196,7 @@
 	<ctype.h>
 	"fecha.h"
 
-1558917317 source:c:\users\sangl\desktop\26\05\19\practicaparcial1.0\marca.c
+1559014910 source:c:\users\sangl\desktop\26\05\19\practicaparcial1.0\marca.c
 	"Marca.h"
 
 1558915118 source:c:\users\sangl\desktop\26\05\19\practicaparcial1.0\servicios.c
@@ -208,6 +208,6 @@
 1558843453 source:c:\users\sangl\desktop\26\05\19\practicaparcial1.0\validaciones.c
 	"validaciones.h"
 
-1558917766 source:c:\users\sangl\desktop\26\05\19\practicaparcial1.0\abm.c
+1559015129 source:c:\users\sangl\desktop\26\05\19\practicaparcial1.0\abm.c
 	"ABM.h"
 

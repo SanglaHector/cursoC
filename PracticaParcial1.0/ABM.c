@@ -20,7 +20,7 @@ void altaE(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor colVec[],int
 void pedirDatos(eAuto vec[], int tam, int indice, eMarca vecMar[], int tamMAr, eColor vecCol[], int tamCol){
     int validar = -1;
     char aux[50];
-    int auxInt;
+    int auxInt = 0;
     char patenteNum[6];
     char patenteCar[3];
     char patente[6];
@@ -94,32 +94,16 @@ void pedirDatos(eAuto vec[], int tam, int indice, eMarca vecMar[], int tamMAr, e
 
 //************************MARCA********************************************************************
     validar = -1;
+    auxInt = 0;
     while(validar == -1){
             printf("\nIngrese un codigo de marca");
             mostrarMarcas(vecMar,tamMAr);
-            scanf("%s", aux);
-            validar = validarInt(1000,1004,aux);
-            if(validar == -1){
-                printf("\nPor favor ingrese una opcion correcta.");
-            }
-    }
-    vec[indice].idMarca = atoi(aux);
-    strcpy(aux," ");
-//************************COLOR***********************************************************************
-    validar = -1;
-    while(validar == -1){
-            printf("\nIngrese un codigo de color");
-            mostrarColores(vecCol,tamCol);
-            fflush(stdin);
-            scanf("%d", auxInt);
-            fflush(stdin);
-            validar = -1;
-            for(int i = 0; i < tamCol; i++)
+            scanf("%d", &auxInt);
+            for(int i = 0; i < tamMAr; i++)
             {
-                if(vecCol[i].estado == OCUPADO && vecCol[i].id == auxInt)
+                if(vecMar[i].id == auxInt && vecMar[i].estado == OCUPADO)
                 {
                     validar = 1;
-                    printf("\nValidar: %d",validar);
                     break;
                 }
             }
@@ -127,8 +111,31 @@ void pedirDatos(eAuto vec[], int tam, int indice, eMarca vecMar[], int tamMAr, e
                 printf("\nPor favor ingrese una opcion correcta.");
             }
     }
-    vec[indice].idColor = atoi(aux);
-    strcpy(aux," ");
+    vec[indice].idMarca = auxInt;
+//************************COLOR***********************************************************************
+    validar = -1;
+    auxInt = 0;
+    while(validar == -1){
+            printf("\nIngrese un codigo de color");
+            mostrarColores(vecCol,tamCol);
+            fflush(stdin);
+            scanf("%d", &auxInt);
+            fflush(stdin);
+            validar = -1;
+            for(int i = 0; i < tamCol; i++)
+            {
+                if(vecCol[i].estado == OCUPADO && vecCol[i].id == auxInt)
+                {
+                    validar = 1;
+                    break;
+                }
+            }
+            if(validar == -1){
+                printf("\nPor favor ingrese una opcion correcta.");
+            }
+    }
+    vec[indice].idColor = auxInt;
+    auxInt = 0;
 //**********************TERIMINE VALIDACION***********************************************************
             vec[indice].estado = OCUPADO;
             printf("\nDatos ingresados con exito!\n");
