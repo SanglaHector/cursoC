@@ -178,7 +178,9 @@ void bajaColor(eColor vec[], int tam){
     int indice;
     char aux[20];
     int validar = -1;
-    printf("\nIngrese el color que desee dar de baja: ");
+    char seguir = 'n';
+    mostrarColores(vec,tam);
+    printf("\nIngrese el nombre del color que desee dar de baja: ");
     scanf("%s", aux);
     fflush(stdin);
 
@@ -190,10 +192,18 @@ void bajaColor(eColor vec[], int tam){
         }
     }
     if( validar == 1){
-        //printf("\nEl color :");
+
         mostrarCol(vec[indice]);
-        printf("\nLa baja se genero correctamente!\n");
-        vec[indice].estado = VACIO;
+        printf("\nDesea ejecutar la baja? ingrese 's' para confirmar : ");
+        scanf("%c", &seguir);
+        if( seguir == 's'|| seguir == 'S')
+        {
+            printf("\nLa baja se genero correctamente!\n");
+            vec[indice].estado = VACIO;
+        }else
+        {
+            printf("\nLa operacion se ha cancelado!");
+        }
     }else {
         printf("\nNo existe el color %s o no esta dado de alta.\n", aux);
     }

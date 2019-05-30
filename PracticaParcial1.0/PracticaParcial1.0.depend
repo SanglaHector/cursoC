@@ -211,3 +211,109 @@
 1559015129 source:c:\users\sangl\desktop\26\05\19\practicaparcial1.0\abm.c
 	"ABM.h"
 
+1559174931 source:c:\users\sangl\desktop\29demayo\practicaparcial1.0\abm.c
+	"ABM.h"
+
+1559168929 c:\users\sangl\desktop\29demayo\practicaparcial1.0\abm.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"Colores.h"
+	"Servicios.h"
+	"validaciones.h"
+	"Marca.h"
+	"auto.h"
+	"Trabajo.h"
+	"Clientes.h"
+
+1559150398 c:\users\sangl\desktop\29demayo\practicaparcial1.0\colores.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1559150398 c:\users\sangl\desktop\29demayo\practicaparcial1.0\servicios.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1559150398 c:\users\sangl\desktop\29demayo\practicaparcial1.0\validaciones.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1559150398 c:\users\sangl\desktop\29demayo\practicaparcial1.0\marca.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1559150398 c:\users\sangl\desktop\29demayo\practicaparcial1.0\auto.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1559150398 c:\users\sangl\desktop\29demayo\practicaparcial1.0\trabajo.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"fecha.h"
+
+1559150398 c:\users\sangl\desktop\29demayo\practicaparcial1.0\fecha.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1559150398 c:\users\sangl\desktop\29demayo\practicaparcial1.0\clientes.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1559150398 source:c:\users\sangl\desktop\29demayo\practicaparcial1.0\auto.c
+	"auto.h"
+
+1559154283 source:c:\users\sangl\desktop\29demayo\practicaparcial1.0\clientes.c
+	"Clientes.h"
+
+1559152714 source:c:\users\sangl\desktop\29demayo\practicaparcial1.0\colores.c
+	"Colores.h"
+
+1559150398 source:c:\users\sangl\desktop\29demayo\practicaparcial1.0\fecha.c
+	"fecha.h"
+
+1559170720 source:c:\users\sangl\desktop\29demayo\practicaparcial1.0\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"ABM.h"
+
+1559152675 source:c:\users\sangl\desktop\29demayo\practicaparcial1.0\marca.c
+	"Marca.h"
+
+1559153540 source:c:\users\sangl\desktop\29demayo\practicaparcial1.0\servicios.c
+	"Servicios.h"
+
+1559169908 source:c:\users\sangl\desktop\29demayo\practicaparcial1.0\trabajo.c
+	"Trabajo.h"
+
+1559150398 source:c:\users\sangl\desktop\29demayo\practicaparcial1.0\validaciones.c
+	"validaciones.h"
+

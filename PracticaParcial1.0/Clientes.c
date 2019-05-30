@@ -200,6 +200,7 @@ void modificarCliente(eCliente vec[],  int tam){
             switch(opcion)
             {
             case 1:
+                validar =-1;
                 while ( validar == -1){
                      printf("\nIngrese el nobmre del cliente: ");
                      fflush(stdin);
@@ -210,11 +211,13 @@ void modificarCliente(eCliente vec[],  int tam){
                        printf("\nPor favor solo ingrese digitos afabeticos.");
                      }else
                      {
+                         formatearNombre(aux.nombre);
                          strcpy(vec[indice].nombre, aux.nombre);
                      }
                 }
                 break;
             case 2:
+                validar = -1;
                 while ( validar == -1){
 
                     printf("\nIngrese el apellido del cliente: ");
@@ -226,11 +229,13 @@ void modificarCliente(eCliente vec[],  int tam){
                         printf("\nPor favor solo ingrese digitos afabeticos.");
                     }else
                     {
+                        formatearNombre(aux.apellido);
                         strcpy(vec[indice].apellido, aux.apellido);
                     }
                 }
                 break;
             case 3:
+                validar =-1;
                 while ( validar == -1){
 
                     printf("\nIngrese el sexo del cliente: ");
@@ -262,7 +267,9 @@ void modificarCliente(eCliente vec[],  int tam){
 void bajaCliente(eCliente vec[], int tam){
     int indice;
     int id;
+    char seguir = 'n';
     int validar = -1;
+    mostrarClientes(vec,tam);
     printf("\nIngrese el id del  Cliente que desee dar de baja: ");
     scanf("%d", &id);
     fflush(stdin);
@@ -277,8 +284,16 @@ void bajaCliente(eCliente vec[], int tam){
     if( validar == 1){
         //printf("\nEl Cliente :");
         mostrarCli(vec[indice]);
-        printf("\nLa baja se genero correctamente!\n");
-        vec[indice].estado = VACIO;
+        printf("\nDesea ejecutar la baja de este cliente? Ingrese S para confirmar : ");
+        scanf("%c", &seguir);
+        if(seguir == 's' || seguir == 'S')
+        {
+            printf("\nLa baja se genero correctamente!\n");
+            vec[indice].estado = VACIO;
+        }else
+        {
+            printf("\nLa baja se genero correctamente!");
+        }
     }else {
         printf("\nNo existe el id: '%d' o no esta dado de alta.\n",id );
     }

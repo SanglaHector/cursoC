@@ -174,7 +174,9 @@ void bajaMarca(eMarca vec[], int tam){
     int indice;
     char aux[20];
     int validar = -1;
-    printf("\nIngrese la marca que desee dar de baja: ");
+    char seguir = 'n';
+    mostrarMarcas(vec,tam);
+    printf("\nIngrese el nombre de la  marca que desee dar de baja: ");
     scanf("%s", aux);
     fflush(stdin);
 
@@ -188,8 +190,16 @@ void bajaMarca(eMarca vec[], int tam){
     if( validar == 1){
         //printf("\nEl marca :");
         mostrarMarca(vec[indice]);
-        printf("\nLa baja se genero correctamente!\n");
-        vec[indice].estado = VACIO;
+        printf("\nDesea ejecutar la baja? Ingrese 'S' para confirmar: ");
+        scanf("%c", &seguir);
+        if ( seguir == 's' || seguir == 'S')
+        {
+            printf("\nLa baja se genero correctamente!\n");
+            vec[indice].estado = VACIO;
+        }else
+        {
+            printf("\nSe ha cancelado la operacion!");
+        }
     }else {
         printf("\nNo existe la marca %s o no esta dado de alta.\n", aux);
     }

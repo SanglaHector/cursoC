@@ -6,7 +6,7 @@
 #include "ABM.h"
 #define TAM 1000
 #define TAMMAR 10
-#define TAMTRA 1000
+#define TAMTRA 100
 #define TAMCOL 100
 #define TAMSER 10
 #define TAMCLI 10
@@ -58,12 +58,12 @@ do
         switch(opcion)
         {
         case 1:
-                altaE(autos,TAM,marcas,TAMMAR,colores,TAMCOL);
+                altaE(autos,TAM,marcas,TAMMAR,colores,TAMCOL,clientes,TAMCLI);
             break;
         case 2:
             vacio = buscarLleno(autos,TAM);
             if( vacio == OCUPADO){
-                modificarE(autos,TAM,marcas,TAMMAR,colores,TAMCOL);
+                modificarE(autos,TAM,marcas,TAMMAR,colores,TAMCOL,clientes,TAMCLI);
             }else {
             printf("\nDebe ingresar un usuario antes de ingresar a esta opcion.\n");
             }
@@ -71,7 +71,7 @@ do
         case 3:
                 vacio = buscarLleno(autos,TAM);
             if( vacio == OCUPADO){
-                bajaE(autos,TAM,marcas,TAMMAR,colores,TAMCOL);
+                bajaE(autos,TAM,marcas,TAMMAR,colores,TAMCOL,clientes,TAMCLI);
             }else {
             printf("\nDebe ingresar un usuario antes de ingresar a esta opcion.\n");
             }
@@ -93,7 +93,7 @@ do
             programaClientes(clientes,TAMCLI);
             break;
         case 9:
-
+            listados(autos,TAM,colores,TAMCOL,marcas,TAMMAR,servicios,TAMSER,trabajos,TAMTRA,clientes,TAMCLI);
             break;
         case 10:
             printf("Hasta luego!\n");

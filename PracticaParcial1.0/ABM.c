@@ -1,23 +1,23 @@
 #include "ABM.h"
 //********************************************************************************************************
-void altaE(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor colVec[],int tamCol){
+void altaE(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor colVec[],int tamCol,eCliente vecCli[], int tamCli){
     int id;
     int indice = buscarLibre(vec,tam);
 
     if (indice == -1){
-        printf("\nNo hay espacio para agregar empleados.");
+        printf("\nNo hay espacio para agregar autos.");
     }else{
             id = generarIdAuto();
 
-            pedirDatos(vec,tam,id,vecMar,tamMar,colVec,tamCol);
-            vec[id].id = id;
-            printf("\nEmpleado ingresado con exito: \n");
-            mostrarE(vec[id],vecMar,tamMar,colVec,tamCol);
+            pedirDatos(vec,tam,id,vecMar,tamMar,colVec,tamCol,vecCli,tamCli);
+            vec[indice].id = id;
+            printf("\n  Patente:    Marca:    Color:   Modelo:   Nombre: Apellido:\n");
+            mostrarE(vec[id],vecMar,tamMar,colVec,tamCol,vecCli,tamCli);
         }
     }
 
 //*******************PIDO DATOS************************************************************************
-void pedirDatos(eAuto vec[], int tam, int indice, eMarca vecMar[], int tamMAr, eColor vecCol[], int tamCol){
+void pedirDatos(eAuto vec[], int tam, int indice, eMarca vecMar[], int tamMAr, eColor vecCol[], int tamCol,eCliente vecCli[], int tamCli){
     int validar = -1;
     char aux[50];
     int auxInt = 0;
@@ -136,12 +136,35 @@ void pedirDatos(eAuto vec[], int tam, int indice, eMarca vecMar[], int tamMAr, e
     }
     vec[indice].idColor = auxInt;
     auxInt = 0;
+//**********************CLIENTES**********************************************************************
+validar = -1;
+ while(validar == -1){
+            printf("\nIngrese un codigo de cliente");
+            mostrarClientes(vecCli,tamCli);
+            fflush(stdin);
+            scanf("%d", &auxInt);
+            fflush(stdin);
+            validar = -1;
+            for(int i = 0; i < tamCli; i++)
+            {
+                if(vecCli[i].estado == OCUPADO && vecCli[i].id == auxInt)
+                {
+                    validar = 1;
+                    break;
+                }
+            }
+            if(validar == -1){
+                printf("\nPor favor ingrese una opcion correcta.");
+            }
+    }
+    vec[indice].idCliente = auxInt;
+    auxInt = 0;
 //**********************TERIMINE VALIDACION***********************************************************
             vec[indice].estado = OCUPADO;
             printf("\nDatos ingresados con exito!\n");
 }
 //****************************************************************************************************
-void bajaE(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol){
+void bajaE(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol,eCliente vecCli[], int tamCli){
     int id;
     char patente[6];
     int indice;
@@ -157,7 +180,7 @@ void bajaE(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  i
 
     indice = buscarE(vec,tam,id);
     if (indice != -1 && vec[indice].estado == OCUPADO){
-        mostrarE(vec[indice],vecMar,tamMar,vecCol,tamCol);
+        mostrarE(vec[indice],vecMar,tamMar,vecCol,tamCol,vecCli,tamCli);
         printf("\nEsta seguro que desea dar de baja este auto? S/N: ");
         fflush(stdin);
         scanf("%c",&seguir);
@@ -175,7 +198,7 @@ void bajaE(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  i
 }
 //************************************************************************************
 
-void modificarE(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol){
+void modificarE(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol,eCliente vecCli[], int tamCli){
     int id;
     int indice;
     char patente[6];
@@ -190,15 +213,15 @@ void modificarE(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[
     }
     indice = buscarE(vec,tam,id);
     if (indice != -1 && vec[indice].estado == OCUPADO){
-        mostrarE(vec[indice],vecMar,tamMar,vecCol,tamCol);
+        mostrarE(vec[indice],vecMar,tamMar,vecCol,tamCol,vecCli,tamCli);
         printf("\nDesea modificar este auto?Ingrese S/N: ");
         fflush(stdin);
         scanf("%c" , &seguir);
         fflush(stdin);
         if(seguir == 's' || seguir == 'S'){
 
-            menuModificar(vec,tam,vecMar,tamMar,vecCol,tamCol,indice);
-            mostrarE(vec[indice],vecMar,tamMar,vecCol,tamCol);
+            menuModificar(vec,tam,vecMar,tamMar,vecCol,tamCol,indice,vecCli,tamCli);
+            mostrarE(vec[indice],vecMar,tamMar,vecCol,tamCol,vecCli,tamCli);
         }else{
             printf("\nLa operacion ha sido cancelada");
         }
@@ -208,18 +231,30 @@ void modificarE(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[
     }
 }
 //********************************************************************************************
-void menuModificar(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol,int indice){
+void mostrarAutos(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol,eCliente vecCli[], int tamCli)
+{
+    printf("\n  Patente:    Marca:    Color:   Modelo:   Nombre: Apellido:\n");
+    for( int i = 0; i < tam ; i++)
+    {
+        mostrarE(vec[i],vecMar,tamMar,vecCol,tamCol,vecCli,tamCli);
+    }
+}
+//********************************************************************************************
+void menuModificar(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol,int indice,eCliente vecCli[], int tamCli){
 
 int opcion;
 int validar =  -1;
 char aux[51];
+int auxInt;
 
 do{
         system("cls");
     printf("\nIngrese una opcion: ");
     printf("\n1.Modificar Color .\n");
     printf("\n2.Modificar Modelo .\n");
-    printf("\n3.Salir .\n");
+    printf("\n3.Modificar Marca.  \n");
+    printf("\n4.Modificar Cliente.\n");
+    printf("\n5.Salir .\n");
     scanf("%d", &opcion);
 
     switch(opcion){
@@ -227,20 +262,23 @@ do{
     case 1:
            validar = -1;
     while(validar == -1){
-            printf("\nIngrese un codigo de color");
-            printf("\n5000.Negro");
-            printf("\n5001.Blanco");
-            printf("\n5002.Gris");
-            printf("\n5003.Rojo :");
-            printf("\n5004.Azuñ\n :");
-            scanf("%s", aux);
-            validar = validarInt(5000,5004,aux);
+            mostrarColores(vecCol,tamCol);
+            printf("\nIngrese un codigo de color: ");
+            scanf("%d",&auxInt);
+            for(int i = 0; i < tamCol; i++)
+            {
+                if(vecCol[i].id == auxInt && vecCol[i].estado)
+                {
+                    validar = 1;
+                }
+            }
             if(validar == -1){
                 printf("\nPor favor ingrese una opcion correcta.");
             }
     }
-    vec[indice].idColor = atoi(aux);
-    strcpy(aux," ");
+    vec[indice].idColor = auxInt;
+    auxInt = 0;
+    mostrarE(vec[indice],vecMar,tamMar,vecCol,tamCol,vecCli,tamCli);
         break;
 //****************************************************************************************************
     case 2:
@@ -256,16 +294,63 @@ do{
         }
         vec[indice].modelo = atoi(aux);
         strcpy(aux," ");
-
+        mostrarE(vec[indice],vecMar,tamMar,vecCol,tamCol,vecCli,tamCli);
 
         break;
+    case 3:
+        validar = -1;
+    while(validar == -1){
+            mostrarMarcas(vecMar,tamMar);
+            printf("\nIngrese un codigo de marca: ");
+            scanf("%d",&auxInt);
+            for(int i = 0; i < tamMar; i++)
+            {
+                if(vecMar[i].id == auxInt && vecMar[i].estado)
+                {
+                    validar = 1;
+                }
+            }
+            if(validar == -1){
+                printf("\nPor favor ingrese una opcion correcta.");
+            }
+    }
+    vec[indice].idMarca = auxInt;
+    auxInt = 0;
+    mostrarE(vec[indice],vecMar,tamMar,vecCol,tamCol,vecCli,tamCli);
+        break;
+
+    case 4:
+        validar = -1;
+    while(validar == -1){
+            mostrarClientes(vecCli,tamCli);
+            printf("\nIngrese un codigo del cliente: ");
+            scanf("%d",&auxInt);
+            for(int i = 0; i < tamCli; i++)
+            {
+                if(vecCli[i].id == auxInt && vecCli[i].estado)
+                {
+                    validar = 1;
+                }
+            }
+            if(validar == -1){
+                printf("\nPor favor ingrese una opcion correcta.");
+            }
+    }
+    vec[indice].idCliente = auxInt;
+    auxInt = 0;
+    mostrarE(vec[indice],vecMar,tamMar,vecCol,tamCol,vecCli,tamCli);
+        break;
+    case 5:
+        printf("\nSaliendo de modificar...");
+        break;
+
 //****************************************************************************************************
     default:
         printf("\nIngrese una opcion correcta. \n");
         break;
 
     }
-}while(opcion != 3);
+}while(opcion != 5);
 }
 //****************************************************************************************************
 int buscarLleno(eAuto vec[],  int tam){
@@ -299,10 +384,13 @@ void listarColores(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecC
     printf("\n");
 }
 //*******************************************************************************************************
-void mostrarE(eAuto e, eMarca vecMar[], int tamMar, eColor vecCol[], int tamCol){
+void mostrarE(eAuto e, eMarca vecMar[], int tamMar, eColor vecCol[], int tamCol,eCliente vecCli[], int tamCli){
 
 char marca[20];
 char color[20];
+char nombre[20];
+char apellido[20];
+
    for(int i = 0; i < tamMar; i++){
 
     if ( vecMar[i].id == e.idMarca){
@@ -317,13 +405,21 @@ char color[20];
         strcpy(color,vecCol[i].descripcion);
     }
    }
+   for ( int i = 0 ; i < tamCli; i++)
+   {
+       if ( vecCli[i].id == e.idCliente )
+       {
+           strcpy(nombre,vecCli[i].nombre);
+           strcpy(apellido,vecCli[i].apellido);
+       }
+   }
    if(e.estado == OCUPADO ){
 
-        printf("\nPatente : %s , Marca: %s , Color: %s , Modelo: %d . ",e.patente,marca,color,e.modelo);
+        printf("\n%10s%10s%10s%10d%10s %10s\n",e.patente,marca,color,e.modelo,nombre,apellido);
    }
 }
 //*****************************************************************************************************
-void listarAutos(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol){
+void listarAutos(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol,eCliente vecCli[], int tamCli){
 
 eAuto aux;
 for(int i = 0; i < tam-1; i++){
@@ -352,7 +448,7 @@ for(int i = 0; i < tam-1; i++){
 for(int i = 0; i < tam ;i ++){
         if(vec[i].estado == OCUPADO){
 
-            mostrarE(vec[i],vecMar,tamMar,vecCol,tamCol);
+            mostrarE(vec[i],vecMar,tamMar,vecCol,tamCol,vecCli,tamCli);
         }
 }
 printf("\n");
@@ -658,6 +754,7 @@ void bajaTrabajo(eTrabajo vec[], int tam, eServicio vecSer[], int tamSer){
     int indice;
     int id;
     int validar = -1;
+    char seguir = 'n';
     printf("  Patente: Servicio:       Id:  Fecha:\n");
     mostrarTrabajos(vec,tam,vecSer,tamSer);
     printf("\nIngrese el id del  Trabajo que desee dar de baja: ");
@@ -672,13 +769,252 @@ void bajaTrabajo(eTrabajo vec[], int tam, eServicio vecSer[], int tamSer){
         }
     }
     if( validar == 1){
-        //printf("\nEl Trabajo :");
         mostrarTrabajo(vec[indice],vecSer,tamSer);
-        printf("\nLa baja se genero correctamente!\n");
-        vec[indice].estado = VACIO;
+        printf("\nDesea ejecutar la baja? Ingrese 's' para confirmar: ");
+        scanf("%c", &seguir);
+        if(seguir == 's'|| seguir == 'S')
+        {
+            printf("\nLa baja se genero correctamente!\n");
+            vec[indice].estado = VACIO;
+        }else
+        {
+            printf("\nLa operacion se ha cancelado!");
+        }
     }else {
         printf("\nEl id ingresado no esta dado de alta en el sistema.\n");
     }
 }
 //************************************************************************
+void listados(eAuto autos[],int tamAuto,eColor colores[] ,int tamCol,eMarca marcas[],int tamMar,eServicio servicios[] ,int tamSer,eTrabajo trabajos[],int tamTra,eCliente clientes[],int tamCli)
+{
+    int opcion = 0;
+    do
+    {
+        system("cls");
 
+        printf("1-Mostrar autos de un color seleccionado\n");
+        printf("2-Mostrar autos de una marca seleccionada\n");
+        printf("3-Mostrar todos los trabajos efectuados al auto seleccionado\n");
+        printf("4-Listar los autos que no tuvieron trabajo\n");
+        printf("5-Informar importe total de los trabajos realizados a un auto seleccionado\n");
+        printf("6-Mostrar el servicio mas pedido\n");
+        printf("7-Mostrar la recaudacion de una fecha en particular\n");
+        printf("8-Mostrar todos los autos que realizaron un servicio seleccionado y la fecha\n");
+        printf("9-Trabajos realizados en autos de un color seleccionado\n");
+        printf("10-Facturacion total por un servicio seleccionado\n");
+        printf("11-Informar la marca de auto que efectuaron mas cantidad de un lavado seleccionado\n");
+        printf("12-Listar los autos que recibieron trabajos en una fecha determinada\n");
+        printf("13-Salir\n");
+        printf("Ingrese una opcion: ");
+        fflush(stdin);
+        scanf("%d",&opcion);
+
+        switch(opcion)
+        {
+        case 1:
+            mostrarAutosDeUnColorDeterminado(autos,tamAuto,colores,tamCol,clientes,tamCli,marcas,tamMar);
+            break;
+        case 2:
+            mostrarAutosDeUnaMarcaDeterminado(autos,tamAuto,colores,tamCol,clientes,tamCli,marcas,tamMar);
+            break;
+        case 3:
+            mostrarTrabajosDeAuto(autos,tamAuto,colores,tamCol,marcas,tamMar,clientes,tamCli,trabajos,tamTra,servicios,tamSer);
+            break;
+        case 4:
+
+            break;
+        case 5:
+
+            break;
+        case 6:
+
+            break;
+        case 7:
+
+            break;
+        case 8:
+
+            break;
+        case 9:
+
+            break;
+        case 10:
+
+            break;
+        case 11:
+
+            break;
+        case 12:
+
+            break;
+        case 13:
+            printf("Hasta luego!\n");
+            break;
+        default:
+            printf("Opcion incorrecta\n");
+        }
+
+        system("pause");
+        system("cls");
+    }while( opcion != 13);
+}
+//************************************************************************
+void mostrarAutosDeUnColorDeterminado(eAuto autos[], int tamAuto, eColor colores[], int tamCol, eCliente clientes[], int tamCli,eMarca marcas[], int tamMar)
+{
+    int validar = -1;
+    int idColor;
+    mostrarColores(colores,tamCol);
+    printf("\nIngrese un id de un color ");
+    scanf("%d",&idColor);
+    for( int i = 0 ; i < tamCol ; i++)
+    {
+        if(colores[i].id == idColor && colores[i].estado == OCUPADO)
+        {
+            validar = 1;
+            break;
+        }
+        else
+        {
+            printf("\nIngrese un color de la lista!");
+        }
+    }
+    if( validar == 1)
+    {
+        printf("\n  Patente:    Marca:    Color:   Modelo:   Nombre: Apellido:\n");
+        for(int i = 0; i < tamAuto; i++)
+        {
+            if(autos[i].idColor == idColor && autos[i].estado == OCUPADO)
+            {
+                mostrarE(autos[i],marcas,tamMar,colores,tamCol,clientes,tamCli);
+            }
+        }
+    }
+}
+//*****************************************************************************************
+void mostrarAutosDeUnaMarcaDeterminado(eAuto autos[], int tamAuto, eColor colores[], int tamCol, eCliente clientes[], int tamCli,eMarca marcas[], int tamMar)
+{
+    int validar = -1;
+    int idMarca;
+    mostrarMarcas(marcas,tamMar);
+    printf("\nIngrese un id de una marca ");
+    scanf("%d",&idMarca);
+    for( int i = 0 ; i < tamMar ; i++)
+    {
+        if(marcas[i].id == idMarca && marcas[i].estado == OCUPADO)
+        {
+            validar = 1;
+            break;
+        }else
+        {
+            printf("\nIngrese una marca de la lista.");
+        }
+    }
+    if( validar == 1)
+    {
+        printf("\n  Patente:    Marca:    Color:   Modelo:   Nombre: Apellido:\n");
+        for(int i = 0; i < tamAuto; i++)
+        {
+            if(autos[i].idMarca == idMarca && autos[i].estado == OCUPADO)
+            {
+                mostrarE(autos[i],marcas,tamMar,colores,tamCol,clientes,tamCli);
+            }
+        }
+    }
+}
+//******************************************************************************
+void mostrarTrabajosDeAuto(eAuto autos[], int tamAuto, eColor colores[], int tamCol, eMarca marcas[],int tamMar,eCliente clientes[], int tamCli,eTrabajo trabajos[], int tamTra, eServicio servicios[], int tamSer)
+{
+    int validar = -1;
+    int contador = 0;
+    char aux[3];
+    char patente[6];
+    char patenteNum[3];
+    char patenteCar[3];
+    mostrarAutos(autos,tamAuto,marcas,tamMar,colores,tamCol,clientes,tamCli);
+    validar = -1;
+        while (validar == -1){
+                contador = 0;
+            fflush(stdin);
+            printf("\nLa patente debe estar compuesta por 3 digitos numericos al principio y 3 al final:");
+            printf("\nIngrese los 3 digitos numericos: ");
+            fflush(stdin);
+            scanf("%s", aux);
+            fflush(stdin);
+            validar = validarInt(0,999,aux);
+            for(int i = 0; i < strlen(aux); i++){
+                if( isdigit(aux[i]) != 0){
+                   contador ++;
+                   }else{
+                    break;
+                   }
+            }
+            if (contador != 3){
+                validar = -1;
+            }
+            contador = 0;
+            if( validar == -1){
+                printf("\nPor favor solo ingrese los 3 primeros digitos: ");
+            }
+        }
+        strcpy(patenteNum,aux);
+        strcpy(patente,aux);
+        printf("\n patente num: %s",patenteNum);//prueba
+        validar = -1;
+        while (validar == -1){
+                contador = 0;
+            fflush(stdin);
+            printf("\nIngrese los 3 digitos alfabeticos: ");
+            scanf("%s", aux);
+            validar = validarNombre(aux);
+            if (validar == 1)
+            {
+                for(int i = 0; i < strlen(aux); i++){
+                    if( isalpha(aux[i]) != 0){
+                       contador ++;
+                       }else{
+                        break;
+                       }
+                }
+            }
+             if (contador != 3){
+                validar = -1;
+            }
+            if( validar == -1){
+                printf("\nPor favor solo ingrese las 3 letras de la patente: ");
+            }
+        }
+        strcpy(patenteCar,aux);
+        printf("\npatente: %s",patente);
+        printf("\npatente num: %s",patenteNum);
+        printf("\npatente char: %s",patenteCar);//me guarda basura
+      /*  strcpy(patente,patenteCar);
+        strcat(patente,patenteNum);
+        printf("patente: %s",patente);
+        validarPatente(patenteCar,patenteNum,patente);
+        printf("patente: %s",patente);*/
+
+
+    for(int i = 0; i < tamAuto; i++)
+    {
+        if( strcmpi(patente,autos[i].patente) == 0 && autos[i].estado == OCUPADO)
+        {
+
+            validar = 1;
+        }
+    }
+
+    if( validar == 1)
+    {
+        for( int i = 0 ; i < tamTra ; i++)
+        {
+            //printf("\npatente ingresada: %s", patente);//LA PATENTE CONTIENE BASURA AL FINAL/Como le saco la basura del final?
+            //el stcmpi no da 0
+            if(strcmpi(trabajos[i].patente,patente) == 0 && trabajos[i].estado == OCUPADO)
+            {
+                mostrarTrabajo(trabajos[i],servicios,tamSer);//no encuentra ninguno
+            }
+        }
+        system("pause");
+    }
+}
+//**************************************************************************
