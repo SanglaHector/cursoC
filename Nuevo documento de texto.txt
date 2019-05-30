@@ -1,0 +1,34 @@
+void mostrarTrabajosDeAuto(eAuto autos[], int tamAuto, eColor colores[], int tamCol, eMarca marcas[],int tamMar,eCliente clientes[], int tamCli,eTrabajo trabajos[], int tamTra, eServicio servicios[], int tamSer)
+{
+    int validar = -1;
+    int contador = 0;
+    char aux[3];
+    char patente[6];
+    char patenteNum[3];
+    char patenteCar[3];
+    mostrarAutos(autos,tamAuto,marcas,tamMar,colores,tamCol,clientes,tamCli);
+    validar = -1;
+        printf("\nIngrese la patente: ");
+        scanf("%s",patente);
+
+
+    for(int i = 0; i < tamAuto; i++)
+    {
+        if( strcmpi(patente,autos[i].patente) == 0 && autos[i].estado == OCUPADO)
+        {
+            printf("\n compi: %d", strcmpi(patente,autos[i].patente));
+            validar = 1;
+        }
+    }
+    if( validar == 1)
+    {
+        for( int i = 0 ; i < tamTra ; i++)
+        {
+            if(strcmpi(trabajos[i].patente,patente) == 0 && trabajos[i].estado == OCUPADO)
+            {
+                mostrarTrabajo(trabajos[i],servicios,tamSer);
+            }
+        }
+        system("pause");
+    }
+}
