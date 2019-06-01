@@ -42,7 +42,7 @@ int main()
         switch(menu())
         {
         case 1:
-            //cargarEmpleados(lista,TAM);
+            cargarEmpleados(&lista,size);
             system("pause");
             break;
         case 2:
@@ -260,9 +260,9 @@ int altaEmpleado( eEmpleado** vec, int size)// si pudo o no dar de alta el emple
     }
 }*/
 //*******************
-/*void cargarEmpleados( eEmpleado** vec, int tam)
+void cargarEmpleados( eEmpleado** vec, int size)
 {
-    int indice;
+    eEmpleado** aux;
     FILE* f;
     int cant = 0;
 
@@ -271,20 +271,28 @@ int altaEmpleado( eEmpleado** vec, int size)// si pudo o no dar de alta el emple
 
     while( !feof(f))
     {
-        printf("\nEntro al while");
-        indice = buscarLibre(vec,tam);
-        printf("\nSali de buscar libre");
-        cant = fread( (vec+indice), sizeof(eEmpleado), 1, f);
+
+        cant = fread( (vec+size), sizeof(eEmpleado), 1, f);
         if(cant < 1)
         {
             if(feof(f) )
             {
                 break;
             }
+            else
+            {
+                printf("\nProblemas en no se que");
+            }
+            size ++;
+            aux = (eEmpleado**) realloc(*vec ,sizeof(eEmpleado*)* (size + 1));
+            if(aux != NULL)
+            {
+                vec = aux;
+            }
         }
     }
     fclose(f);
-}*/
+}
 /*eEmpleado** agrandarLista(eEmpleado** vec, int size)
 {
 
