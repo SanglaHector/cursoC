@@ -9,31 +9,37 @@
 #include "Marca.h"
 #include "auto.h"
 #include "Trabajo.h"
+#include "Clientes.h"
 #define OCUPADO 1
 #define VACIO 0
 //*****************************
 /**
 **/
-void altaE(eAuto vec[], int tam, eMarca marVec[], int marSec,eColor colVec[],int tamCol);
+void altaE(eAuto vec[], int tam, eMarca marVec[], int marSec,eColor colVec[],int tamCol,eCliente vecCli[], int tamCli);
 //*******************************
 /**
 **/
-void pedirDatos(eAuto vec[], int tam, int indice, eMarca vecMar[], int tamMar, eColor vecCol[], int tamCol);
+void pedirDatos(eAuto vec[], int tam, int indice, eMarca vecMar[], int tamMar, eColor vecCol[], int tamCol,eCliente vecCli[], int tamCli);
 //************************************
 /**
 **/
-void bajaE(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol);
+void bajaE(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol,eCliente vecCli[], int tamCli);
 //********************************
 /**
 **/
-void mostrarE(eAuto e, eMarca vecMar[], int tamMar, eColor vecCol[], int tamCol);
+void mostrarE(eAuto e, eMarca vecMar[], int tamMar, eColor vecCol[], int tamCol,eCliente vecCli[], int tamCli);
+//********************************
 /**
 **/
-void modificarE(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol);
+void mostrarAutos(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol,eCliente vecCli[], int tamCli);
+//********************************
+/**
+**/
+void modificarE(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol,eCliente vecCli[], int tamCli);
 //*****************************
 /**
 **/
-void menuModificar(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol,int indice);
+void menuModificar(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol,int indice,eCliente vecCli[], int tamCli);
 //*******************************
 /**
 **/
@@ -52,7 +58,7 @@ void listarColores(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecC
 //********************************
 /**
 **/
-void listarAutos(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol);
+void listarAutos(eAuto vec[], int tam, eMarca vecMar[], int tamMar,eColor vecCol[],  int tamCol,eCliente vecCli[], int tamCli);
 //********************************
 //******************************************************************************************************
 //********************************TRABAJO***************************************************************
@@ -69,4 +75,38 @@ void mostrarTrabajo(eTrabajo vecTra, eServicio vecSer[], int tamSer);
 **/
 void altaTrabajo(eAuto vec[], int tam,eServicio vecSer[], int tamSer,eTrabajo vecTra[], int tamTra);
 //*********************************
+/**
+**/
+void pedirDatosTra(eTrabajo vecTra[], int tamTra, eAuto vecAuto[], int tamAuto, eServicio vecSer[], int tamSer,int indice);
+//***********************************
+/**
+**/
+void programaTrabajos(eTrabajo vecTra[], int tamTra, eAuto vecAuto[], int tamAuto, eServicio vecSer[], int tamSer);
+//***********************************
+/**
+**/
+void modificarTrabajo(eTrabajo vec[],  int tam, eServicio vecSer[], int tamSer, eAuto vecAuto[], int tamAuto);
+//************************************************
+/**
+**/
+void bajaTrabajo(eTrabajo vec[], int tam, eServicio vecSer[], int tamSer);
+//************************************************
+/**
+**/
+void listados(eAuto autos[],int tamAuto,eColor colores[] ,int tamCol,eMarca marcas[],int tamMar,eServicio servicios[] ,int tamSer,eTrabajo trabajos[],int tamTra,eCliente clientes[],int tamCli);
+//*************************************************
+/**
+**/
+void mostrarAutosDeUnColorDeterminado(eAuto autos[], int tamAuto, eColor colores[], int tamCol, eCliente clientes[], int tamCli,eMarca marcas[], int tamMar);
+//***********************************************
+/**
+**/
+void mostrarAutosDeUnaMarcaDeterminado(eAuto autos[], int tamAuto, eColor colores[], int tamCol, eCliente clientes[], int tamCli,eMarca marcas[], int tamMar);
+//*************************************************
+/**
+**/
+void mostrarTrabajosDeAuto(eAuto autos[], int tamAuto, eColor colores[], int tamCol, eMarca marcas[],int tamMar,eCliente clientes[], int tamCli,eTrabajo trabajos[], int tamTra, eServicio servicios[], int tamSer);
+//***********************************************
+/**
+**/
 

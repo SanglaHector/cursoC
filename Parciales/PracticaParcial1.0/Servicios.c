@@ -18,6 +18,7 @@ void listarServicios( eServicio vecSer[], int tamSer){
 }
 //*******************************************************************
 void programaServicios(eServicio vecSer[], int tamSer){
+system("cls");
 int opcion;
 do
     {
@@ -87,6 +88,7 @@ int validar = -1;
 
 while(validar == -1){
 
+    mostrarServicios(vecSer,tamSer);
     printf("\nIngrese un servicio: ");
     fflush(stdin);
     gets(aux);
@@ -97,7 +99,7 @@ while(validar == -1){
     if( validar != -1){
         for ( int i = 0; i < tamSer ; i ++){
 
-            if(strcmpi(vecSer[i].descripcion,aux) == 0){
+            if(strcmpi(vecSer[i].descripcion,aux) == 0 && vecSer[i].estado == OCUPADO){
                 validar = -1;
                 printf("\nEl servicio ingresado ya existe");
                 break;
@@ -204,7 +206,9 @@ void bajaServicio(eServicio vec[], int tam){
     int indice;
     char aux[20];
     int validar = -1;
-    printf("\nIngrese el servicio que desee dar de baja: ");
+    char seguir = 'n';
+    mostrarServicios(vec,tam);
+    printf("\nIngrese el nombre del servicio que desee dar de baja: ");
     scanf("%s", aux);
     fflush(stdin);
 
@@ -216,10 +220,18 @@ void bajaServicio(eServicio vec[], int tam){
         }
     }
     if( validar == 1){
-        //printf("\nEl servicio :");
+
         mostrarServicio(vec[indice]);
-        printf("\nLa baja se genero correctamente!\n");
-        vec[indice].estado = VACIO;
+        printf("\nDesea ejecuar la baja? Ingrese 's' para confirmar: ");
+        scanf("%c", &seguir);
+        if(seguir == 's'|| seguir == 'S')
+        {
+            printf("\nLa baja se genero correctamente!\n");
+            vec[indice].estado = VACIO;
+        }else
+        {
+            printf("\nLa operacion ha sido cancelada!");
+        }
     }else {
         printf("\nNo existe el servicio %s o no esta dado de alta.\n", aux);
     }
@@ -241,7 +253,7 @@ void hardCodearServicios(eServicio vec[], int tam){
 //******************************************************************************
 void mostrarServicios(eServicio vec[], int tam){
 
-    printf(" Servicio:   Precio:       Id:");
+    printf("\n Servicio:   Precio:       Id:");
     for(int i = 0; i < tam ; i ++){
         if(vec[i].estado == OCUPADO){
             mostrarServicio(vec[i]);

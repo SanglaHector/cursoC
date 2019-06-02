@@ -5,7 +5,9 @@ void formatearNombre(char vec[]);
 void altaMarca(eMarca vecMar[], int tamMar);
 void modificarMarca(eMarca vec[],  int tam);
 void bajaMarca(eMarca vec[], int tam);
+
 void programaMarcas(eMarca vecMar[], int tamMar){
+system("cls");
 int opcion;
 do
     {
@@ -47,17 +49,17 @@ do
 //**************************************************************************************************************
 void altaMarcas(eMarca vecMar[], int tamMar){
 
-    int indice = buscarLibreCol(vecMar,tamMar);
+    int indice = buscarLibreMarca(vecMar,tamMar);
 
     if (indice == -1){
         printf("\nNo hay espacio para agregar marcas.");
     }else{
 
-            pedirDatosCol(vecMar,tamMar,indice);
+            pedirDatosMarca(vecMar,tamMar,indice);
             vecMar[indice].estado = OCUPADO;
-            vecMar[indice].id = generarIdCol();
+            vecMar[indice].id = generarIdMarca();
             printf("\nMarca ingresado con exito: \n");
-            mostrarCol(vecMar[indice]);
+            mostrarMarca(vecMar[indice]);
         }
     }
 
@@ -134,7 +136,7 @@ void modificarMarca(eMarca vec[],  int tam){
     int validar = -1;
     int indice;
     mostrarMarcas(vec,tam);
-    printf("\nIngrese la marca que quiera modificar: ");
+    printf("\nIngrese el nombre de la  marca que quiera modificar: ");
     fflush(stdin);
     scanf("%s", aux);
     for(int i = 0; i < tam ; i++){
@@ -155,7 +157,7 @@ void modificarMarca(eMarca vec[],  int tam){
             if(strcmpi(aux,vec[i].descripcion)== 0){
                     printf("\nLa marca en posicion %d es %s", i, vec[i].descripcion);
                 printf("\nEsta marca ya existe: \n");
-                mostrarCol(vec[i]);
+                mostrarMarca(vec[i]);
                 validar =  -1;
             }
         }
@@ -163,7 +165,7 @@ void modificarMarca(eMarca vec[],  int tam){
         formatearNombre(aux);
         strcpy(vec[indice].descripcion,aux);
         printf("\nSe ha modificado la marca exitosamente!\n");
-        mostrarCol(vec[indice]);
+        mostrarMarca(vec[indice]);
     }else{
         printf("\nLa operacion ha sido cancelada.\n");}
 }
@@ -172,7 +174,9 @@ void bajaMarca(eMarca vec[], int tam){
     int indice;
     char aux[20];
     int validar = -1;
-    printf("\nIngrese la marca que desee dar de baja: ");
+    char seguir = 'n';
+    mostrarMarcas(vec,tam);
+    printf("\nIngrese el nombre de la  marca que desee dar de baja: ");
     scanf("%s", aux);
     fflush(stdin);
 
@@ -185,9 +189,17 @@ void bajaMarca(eMarca vec[], int tam){
     }
     if( validar == 1){
         //printf("\nEl marca :");
-        mostrarCol(vec[indice]);
-        printf("\nLa baja se genero correctamente!\n");
-        vec[indice].estado = VACIO;
+        mostrarMarca(vec[indice]);
+        printf("\nDesea ejecutar la baja? Ingrese 'S' para confirmar: ");
+        scanf("%c", &seguir);
+        if ( seguir == 's' || seguir == 'S')
+        {
+            printf("\nLa baja se genero correctamente!\n");
+            vec[indice].estado = VACIO;
+        }else
+        {
+            printf("\nSe ha cancelado la operacion!");
+        }
     }else {
         printf("\nNo existe la marca %s o no esta dado de alta.\n", aux);
     }
@@ -209,7 +221,7 @@ void hardCodearMarcas(eMarca vec[], int tam){
 //***************************************************************************
 void mostrarMarcas(eMarca vec[], int tam){
 
-    printf("    Marca:       Id:\n");
+    printf("\n    Marca:       Id:\n");
     for(int i = 0; i < tam ; i ++){
         if(vec[i].estado == OCUPADO){
             mostrarMarca(vec[i]);

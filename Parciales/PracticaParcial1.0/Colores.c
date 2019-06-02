@@ -5,7 +5,10 @@ void formatearNombre(char vec[]);
 void altaColores(eColor vecCol[], int tamCol);
 void modificarColor(eColor vec[],  int tam);
 void bajaColor(eColor vec[], int tam);
+
+
 void programaColores(eColor vecCol[], int tamCol){
+system("cls");
 int opcion;
 do
     {
@@ -175,7 +178,9 @@ void bajaColor(eColor vec[], int tam){
     int indice;
     char aux[20];
     int validar = -1;
-    printf("\nIngrese el color que desee dar de baja: ");
+    char seguir = 'n';
+    mostrarColores(vec,tam);
+    printf("\nIngrese el nombre del color que desee dar de baja: ");
     scanf("%s", aux);
     fflush(stdin);
 
@@ -187,10 +192,18 @@ void bajaColor(eColor vec[], int tam){
         }
     }
     if( validar == 1){
-        //printf("\nEl color :");
+
         mostrarCol(vec[indice]);
-        printf("\nLa baja se genero correctamente!\n");
-        vec[indice].estado = VACIO;
+        printf("\nDesea ejecutar la baja? ingrese 's' para confirmar : ");
+        scanf("%c", &seguir);
+        if( seguir == 's'|| seguir == 'S')
+        {
+            printf("\nLa baja se genero correctamente!\n");
+            vec[indice].estado = VACIO;
+        }else
+        {
+            printf("\nLa operacion se ha cancelado!");
+        }
     }else {
         printf("\nNo existe el color %s o no esta dado de alta.\n", aux);
     }
@@ -201,7 +214,7 @@ void hardCodearColores(eColor vec[], int tam){
         {5000,"Negro",1},
         {5001,"Blanco",1},
         {5002,"Gris",1},
-        {5003,"Rojo"},
+        {5003,"Rojo",1},
         {5004,"Azul",1}
     };
     for(int i = 0; i < tam; i ++){
@@ -212,7 +225,7 @@ void hardCodearColores(eColor vec[], int tam){
 //*************************************************************************
 void mostrarColores(eColor vec[], int tam){
 
-    printf("    Color:       Id:\n");
+    printf("\n    Color:       Id:\n");
     for(int i = 0; i < tam ; i ++){
         if(vec[i].estado == OCUPADO){
             mostrarCol(vec[i]);

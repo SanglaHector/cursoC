@@ -2,6 +2,7 @@
 
 //******************************************************************************
 void programaClientes(eCliente vecCli[], int tamCli){
+    system("cls");
 int opcion;
 do
     {
@@ -53,13 +54,14 @@ void altaClientes(eCliente vecCli[], int tamCli){
             vecCli[indice].estado = OCUPADO;
             vecCli[indice].id = generarIdCli();
             printf("\nCliente ingresado con exito: \n");
+            printf("   Nombre: Apellido:     Sexo:       Id:\n");
             mostrarCli(vecCli[indice]);
         }
     }
 //****************************************************************************************************************
 int generarIdCli()
 {
-    static int id= 0;
+    static int id= 1;
     return id++;
 }
 //****************************************************************************************************************
@@ -79,6 +81,7 @@ while ( validar == -1){
         printf("\nPor favor solo ingrese digitos afabeticos.");
     }
 }
+validar = -1;
 while ( validar == -1){
 
     printf("\nIngrese el apellido del cliente: ");
@@ -90,18 +93,20 @@ while ( validar == -1){
         printf("\nPor favor solo ingrese digitos afabeticos.");
     }
 }
+validar = -1;
 while ( validar == -1){
 
     printf("\nIngrese el sexo del cliente: ");
     fflush(stdin);
-    scanf("%c", aux.sexo);
+    scanf("%c", &aux.sexo);
     fflush(stdin);
     validar = validarSexo(aux.sexo);
     if (validar == -1){
         printf("\nPor favor solo ingrese los digitos M o F.");
     }
 }
-
+system("cls");
+printf("\n\nSe dio de alta correctamente el sexo");
 for ( int i = 0; i < tamCli ; i++){
 
     if(strcmpi(aux.nombre,vecCli[i].nombre) == 0 && strcmpi(aux.apellido,vecCli[i].apellido) == 0 && vecCli[i].estado == OCUPADO){
@@ -139,7 +144,7 @@ int buscarLibreCli(eCliente vec[], int tam){
 void mostrarCli(eCliente vecCli){
 
     if(vecCli.estado == OCUPADO){
-        printf("%10s%10d\n", vecCli.descripcion,vecCli.id);
+        printf("%10s%10s%10c      %04d\n", vecCli.nombre,vecCli.apellido,vecCli.sexo,vecCli.id);
     }
 
 }
@@ -154,55 +159,124 @@ void inicializarClientes(eCliente vec[] , int tam){
 }
 //**************************************************************************************************************
 void modificarCliente(eCliente vec[],  int tam){
-    char aux[20];
+    eCliente aux;
+    int id;
     int validar = -1;
-    int indice;
+    int indice ;
+    int opcion;
     mostrarClientes(vec,tam);
-    printf("\nIngrese el Cliente que quiera modificar: ");
-    fflush(stdin);
-    scanf("%s", aux);
-    for(int i = 0; i < tam ; i++){
-
-        if(strcmpi(aux,vec[i].descripcion) ==  0){
-            validar = 1;
-            indice = i;
+    while(validar == -1)
+    {
+        printf("\nIngrese el id del Cliente que quiera modificar: ");
+        fflush(stdin);
+        scanf("%s", aux.nombre);
+        validar = validarInt(0,9999,aux.nombre);
+        if ( validar == 1)
+        {
+            id = atoi(aux.nombre);
+        }
+        else
+        {
+            printf("\nIngrese un valor correcto: ");
         }
     }
-    if ( validar != -1 ){
-
-        printf("\nIngrese el Cliente por el cual reemplazar al '%s' : ", aux);
-        strcpy(aux," ");
-        fflush(stdin);
-        scanf("%s", aux);
-
-        for(int i = 0 ; i < tam ; i++){
-            if(strcmpi(aux,vec[i].descripcion)== 0){
-                    printf("\nEl Cliente en posicion %d es %s", i, vec[i].descripcion);
-                printf("\nEste Cliente ya existe: \n");
-                mostrarCli(vec[i]);
-                validar =  -1;
+    for(int i = 0; i < tam ; i++)
+        {
+            if(id == vec[i].id && vec[i].estado == OCUPADO)
+            {
+                validar = 1;
+                indice = i;
             }
         }
-    }if (validar != -1){
-        formatearNombre(aux);
-        strcpy(vec[indice].descripcion,aux);
-        printf("\nSe ha modificado el Cliente exitosamente!\n");
-        mostrarCli(vec[indice]);
-    }else{
-        printf("\nLa operacion ha sido cancelada.\n");}
+    if (validar == 1)
+    {
+        do
+        {
+            printf("\nIngrese la opcion que quiera modificar: ");
+            printf("\n1. Nombre ");
+            printf("\n2. Apellido ");
+            printf("\n3. Sexo ");
+            scanf("%d", &opcion);
+            switch(opcion)
+            {
+            case 1:
+                validar =-1;
+                while ( validar == -1){
+                     printf("\nIngrese el nobmre del cliente: ");
+                     fflush(stdin);
+                     gets(aux.nombre);
+                     fflush(stdin);
+                     validar = validarNombre(aux.nombre);
+                     if (validar == -1){
+                       printf("\nPor favor solo ingrese digitos afabeticos.");
+                     }else
+                     {
+                         formatearNombre(aux.nombre);
+                         strcpy(vec[indice].nombre, aux.nombre);
+                     }
+                }
+                break;
+            case 2:
+                validar = -1;
+                while ( validar == -1){
+
+                    printf("\nIngrese el apellido del cliente: ");
+                    fflush(stdin);
+                    gets(aux.apellido);
+                    fflush(stdin);
+                    validar = validarNombre(aux.apellido);
+                    if (validar == -1){
+                        printf("\nPor favor solo ingrese digitos afabeticos.");
+                    }else
+                    {
+                        formatearNombre(aux.apellido);
+                        strcpy(vec[indice].apellido, aux.apellido);
+                    }
+                }
+                break;
+            case 3:
+                validar =-1;
+                while ( validar == -1){
+
+                    printf("\nIngrese el sexo del cliente: ");
+                    fflush(stdin);
+                    scanf("%c", &aux.sexo);
+                    fflush(stdin);
+                    validar = validarSexo(aux.sexo);
+                    if (validar == -1){
+                        printf("\nPor favor solo ingrese los digitos M o F.");
+                    }else
+                    {
+                        vec[indice].sexo = aux.sexo;
+                    }
+                }
+                break;
+            default:
+                printf("\nOpcion incorrecta");
+                validar = -1;
+                break;
+            }
+        }while(validar == -1);
+    }
+    else
+    {
+        printf("\nNo se ha encontrado un cliente de alta con el numero de id %d", id);
+    }
 }
 //******************************************************************************
 void bajaCliente(eCliente vec[], int tam){
     int indice;
-    char aux[20];
+    int id;
+    char seguir = 'n';
     int validar = -1;
-    printf("\nIngrese el Cliente que desee dar de baja: ");
-    scanf("%s", aux);
+    mostrarClientes(vec,tam);
+    printf("\nIngrese el id del  Cliente que desee dar de baja: ");
+    scanf("%d", &id);
     fflush(stdin);
 
     for(int i = 0; i< tam ; i++){
 
-        if(strcmpi(aux,vec[i].descripcion) == 0){
+        if(id == vec[i].id){
             validar = 1;
             indice = i;
         }
@@ -210,20 +284,28 @@ void bajaCliente(eCliente vec[], int tam){
     if( validar == 1){
         //printf("\nEl Cliente :");
         mostrarCli(vec[indice]);
-        printf("\nLa baja se genero correctamente!\n");
-        vec[indice].estado = VACIO;
+        printf("\nDesea ejecutar la baja de este cliente? Ingrese S para confirmar : ");
+        scanf("%c", &seguir);
+        if(seguir == 's' || seguir == 'S')
+        {
+            printf("\nLa baja se genero correctamente!\n");
+            vec[indice].estado = VACIO;
+        }else
+        {
+            printf("\nLa baja se genero correctamente!");
+        }
     }else {
-        printf("\nNo existe el Cliente %s o no esta dado de alta.\n", aux);
+        printf("\nNo existe el id: '%d' o no esta dado de alta.\n",id );
     }
 }
 //**************************************************************************
 void hardCodearClientes(eCliente vec[], int tam){
     eCliente ficticios[] ={
-        {5000,"Negro",1},
-        {5001,"Blanco",1},
-        {5002,"Gris",1},
-        {5003,"Rojo"},
-        {5004,"Azul",1}
+        {1234,"Hector","Sangla",'m',1},
+        {5678,"Maria","Espada",'f',1},
+        {9012,"Alberto","Sanchez",'m',1},
+        {3456,"Sabrina","Rodriguez",'f',1},
+        {7890,"Hernan","Fernandez",'m',1}
     };
     for(int i = 0; i < tam; i ++){
 
@@ -233,7 +315,7 @@ void hardCodearClientes(eCliente vec[], int tam){
 //*************************************************************************
 void mostrarClientes(eCliente vec[], int tam){
 
-    printf("    Cliente:       Id:\n");
+    printf("   Nombre: Apellido:     Sexo:       Id:\n");
     for(int i = 0; i < tam ; i ++){
         if(vec[i].estado == OCUPADO){
             mostrarCli(vec[i]);

@@ -32,5 +32,7 @@ void inicializarTrabajos(eTrabajo vecTra[],int tamTra);
 /**
 **/
 void hardCodearTrabajos(eTrabajo vec[], int tam);
-//************************************************
-
+//*************************************************
+/**
+**/
+int generarIdTra();

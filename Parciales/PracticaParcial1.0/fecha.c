@@ -20,7 +20,7 @@ int retorno = 0;
 int validarFecha(int dia, int mes, int anio){
 
 int validar = 0;
-if( anio < 1900 && anio > 2020){
+if( anio > 1900 && anio < 2020){
     switch(mes){
     case 1:
         if(dia > 0 && dia < 32){
@@ -87,6 +87,9 @@ if( anio < 1900 && anio > 2020){
         validar = -1;
         break;
     }
+}else
+{
+    validar =-2;
 }
 return validar;
 }
