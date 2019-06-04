@@ -18,7 +18,7 @@
     10. Salir
 *****************************************************/
 
-
+/* mi codigo que no funciona
 int main()
 {
 //    int option = 0;
@@ -32,7 +32,7 @@ int main()
 
         }
     }while(option != 10);
-    return 0;*/
+    return 0;
 
 //harcodeo 3 emnplados
     Employee* emp1 = employee_newParametros("1234","Juan","234","25000");
@@ -71,10 +71,63 @@ int main()
     printf("\nCantidad de elementos: %d\n",ll_len(listaEmpleados) );
 
 
-    mostrarEmpleado( (Employee*) ll_get(listaEmpleados,1));//casteo aunqeu de igual forma funciona
+    mostrarEmpleado( (Employee*) ll_get(listaEmpleados,1));           //casteo aunqeu de igual forma funciona
     if(ll_set(listaEmpleados,1,emp4) == 0)
     {
 
     }
 
+}*/ //El que le robe a vicki
+
+int main()
+{
+    int option = 0;
+    int tam, i;
+    LinkedList* listaEmpleados = ll_newLinkedList();
+    Employee* emp1=employee_newParametros("1111", "JUAN", "123", "35000");
+    Employee* emp2=employee_newParametros("2222", "JUANA", "340", "16000");
+    Employee* emp3=employee_newParametros("3333", "pedro", "234", "2000");
+
+    printf("cantidad elementos: %d\n", ll_len(listaEmpleados));
+    if(ll_add(listaEmpleados, emp1)==0)
+    {
+        printf("Se ha agregado con exito a la lista\n");
+    }
+     printf("cantidad elementos: %d\n", ll_len(listaEmpleados));
+    if(ll_add(listaEmpleados, emp2)==0)
+    {
+        printf("Se ha agregado con exito a la lista");
+    }
+     printf("cantidad elementos: %d\n", ll_len(listaEmpleados));
+    if(ll_add(listaEmpleados, emp3)==0)
+    {
+        printf("Se ha agregado con exito a la lista");
+    }
+    printf("cantidad elementos: %d\n", ll_len(listaEmpleados));
+    mostrarEmpleado((Employee*)ll_get(listaEmpleados, 1));
+
+    tam=ll_len(listaEmpleados);
+
+    for(i=0; i<tam; i++)
+    {
+        mostrarEmpleado((Employee*)ll_get(listaEmpleados, i));// el coco de vicky tampoco anda
+
+    }
+
+
+
+
+
+
+    return 0;
 }
+
+/*    do{
+        switch(option)
+        {
+            case 1:
+                controller_loadFromText("data.csv",listaEmpleados);
+                break;
+        }
+    }while(option != 10);
+*/
