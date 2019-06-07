@@ -16,7 +16,7 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
     return 1;
 }
 
-/** \brief Carga los datos de los empleados desde el archivo data.csv (modo binario).
+/** \brief Carga los datos de los empleados desde el archivo data.bin (modo binario).
  *
  * \param path char*
  * \param pArrayListEmployee LinkedList*

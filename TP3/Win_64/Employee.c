@@ -118,11 +118,17 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
         if ( idStr != NULL && nombreStr != NULL && horasTrabajadasStr != NULL && sueldoStr != NULL)
         {
             this = employee_new();
-            if(this != NULL || employee_setId(this, atoi(idStr)) == 1 ||employee_setNombre(this,nombreStr) ||employee_setHorasTrabajadas(this,atoi(horasTrabajadasStr)) ||employee_setSueldo(this,atoi(sueldoStr)))
+            if(this != NULL)
+            {
+                if(  !employee_setId(this, atoi(idStr)) == 1
+                   ||!employee_setNombre(this,nombreStr)
+                   ||!employee_setHorasTrabajadas(this,atoi(horasTrabajadasStr))
+                   ||!employee_setSueldo(this,atoi(sueldoStr)))
                             {
                                 free(this);//creo que queda apuntando null
                                 this = NULL;
                             }
+            }
         }
         return this;
 }
