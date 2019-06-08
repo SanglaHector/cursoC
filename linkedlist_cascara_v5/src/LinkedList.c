@@ -102,21 +102,34 @@ Node* test_getNode(LinkedList* this, int nodeIndex)
 static int addNode(LinkedList* this, int nodeIndex,void* pElement)
 {
     int returnAux = -1;
-    if( this != NULL)
+   /* Node* aux;
+    Node* pNode = NULL;
+    aux = (Node *)malloc(sizeof(Node));//direccion de memoria reservada para un elemento//
+if( aux != NULL)
+{
+    if ( this != NULL)
     {
         if ( this->size > nodeIndex && nodeIndex >= 0 )
         {
-
+            pNode = this-> pFirstNode;
             if(pNode != NULL)
             {
                 for(int i = 0; i < nodeIndex ; i++)
                 {
-                    pNode = pNode->pNextNode;
+                    if(pNode->pNextNode != NULL)
+                    {
+                        pNode = pNode->pNextNode;
+                    }
                 }
+                pNode->pNextNode = aux;
+                aux->pElement = pElement;
+                returnAux = 0;
 
             }
         }
+
     }
+}*/
 
     return returnAux;
 }
@@ -270,7 +283,26 @@ int ll_isEmpty(LinkedList* this)
  */
 int ll_push(LinkedList* this, int index, void* pElement)
 {
+
     int returnAux = -1;
+    Node* pNode;
+    Node* newNode;
+    if ( this != NULL)
+    {
+        if ( this->size >= index && index >= 0 )
+        {
+            pNode = this-> pFirstNode;
+            if(pNode != NULL)
+            {
+                for(int i = 0; i < nodeIndex ; i++)
+                {
+                    pNode = pNode->pNextNode;
+                }
+
+            }
+        }
+
+    }
 
     return returnAux;
 }
