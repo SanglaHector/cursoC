@@ -16,7 +16,7 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
     return 1;
 }
 
-/** \brief Carga los datos de los empleados desde el archivo data.bin (modo binario).
+/** \brief Carga los datos de los empleados desde el archivo data.csv (modo binario).
  *
  * \param path char*
  * \param pArrayListEmployee LinkedList*
@@ -37,7 +37,16 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno = 0;
+    Employee* nuevoEmpleado;
+    nuevoEmpleado = employee_add(); // esto no funciona
+    if(nuevoEmpleado != NULL)
+    {
+        ll_add(pArrayListEmployee, nuevoEmpleado);
+        mostrarEmpleado(nuevoEmpleado);
+        retorno = 1;
+    }
+    return retorno;
 }
 
 /** \brief Modificar datos de empleado
@@ -49,7 +58,18 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno = 0;
+     Employee* auxEmployee;
+    int tope = ll_len(pArrayListEmployee);
+    printf("\nTope: %d",tope);
+    printf("\nEliga un empleado por su id: ");
+    for( int i = 0; i < tope; i ++)
+    {
+        auxEmployee=(Employee*)ll_get(pArrayListEmployee,i);
+        mostrarEmpleado(auxEmployee);
+    }
+
+    return retorno;
 }
 
 /** \brief Baja de empleado

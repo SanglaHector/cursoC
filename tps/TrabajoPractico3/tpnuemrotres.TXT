@@ -1,0 +1,7 @@
+falta hacer las validaciones de datos en el alta
+ver como funcionan los setters y los gettes
+estudiar bien las funcionan los archivos
+crear lista de archivos en caso de que los que esten no funcionen
+implemetar los ids, preguntar si son automaticos
+al momento de trabajas con los archivos hacer una copia por si llego a romper todo
+ver como interactua la carga de archivos con los datos ingresados por el usuario
