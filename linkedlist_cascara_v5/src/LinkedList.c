@@ -282,7 +282,7 @@ int ll_isEmpty(LinkedList* this)
  *
  */
 int ll_push(LinkedList* this, int index, void* pElement)
-{
+/*{
 
     int returnAux = -1;
     Node* pNode;
@@ -305,7 +305,7 @@ int ll_push(LinkedList* this, int index, void* pElement)
     }
 
     return returnAux;
-}
+}*/
 
 
 /** \brief Elimina el elemento de la posicion indicada y retorna su puntero
