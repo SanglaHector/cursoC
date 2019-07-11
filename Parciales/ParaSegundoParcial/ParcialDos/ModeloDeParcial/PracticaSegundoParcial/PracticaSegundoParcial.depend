@@ -1,0 +1,47 @@
+# depslib dependency file v1.0
+1562701641 source:c:\users\sangl\desktop\modelodeparcial\practicasegundoparcial\dominio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Validaciones.h"
+	"Dominio.h"
+	"LinkedList.h"
+
+1562605612 c:\users\sangl\desktop\modelodeparcial\practicasegundoparcial\validaciones.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1562609365 c:\users\sangl\desktop\modelodeparcial\practicasegundoparcial\dominio.h
+	"LinkedList.h"
+
+1562605612 c:\users\sangl\desktop\modelodeparcial\practicasegundoparcial\linkedlist.h
+
+1562815115 source:c:\users\sangl\desktop\modelodeparcial\practicasegundoparcial\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1562814684 source:c:\users\sangl\desktop\modelodeparcial\practicasegundoparcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"LinkedList.h"
+	"parser.h"
+	"Dominio.h"
+
+1562605612 c:\users\sangl\desktop\modelodeparcial\practicasegundoparcial\parser.h
+
+1562608210 source:c:\users\sangl\desktop\modelodeparcial\practicasegundoparcial\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Dominio.h"
+
+1562605612 source:c:\users\sangl\desktop\modelodeparcial\practicasegundoparcial\validaciones.c
+	"validaciones.h"
+

@@ -1,0 +1,85 @@
+# depslib dependency file v1.0
+1561391812 source:c:\users\sangl\desktop\modelodeparcial\modelodeparcial\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1561390949 c:\users\sangl\desktop\modelodeparcial\modelodeparcial\linkedlist.h
+
+1561396756 source:c:\users\sangl\desktop\modelodeparcial\modelodeparcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"parser.h"
+	"empleados.h"
+
+1560391864 c:\users\sangl\desktop\modelodeparcial\modelodeparcial\parser.h
+
+1561392344 c:\users\sangl\desktop\modelodeparcial\modelodeparcial\empleados.h
+
+1560391864 source:c:\users\sangl\desktop\modelodeparcial\modelodeparcial\validaciones.c
+	"validaciones.h"
+
+1560391864 c:\users\sangl\desktop\modelodeparcial\modelodeparcial\validaciones.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1561396882 source:c:\users\sangl\desktop\modelodeparcial\modelodeparcial\empleados.c
+	<stdio.h>
+	<stdlib.h>
+	"Validaciones.h"
+	"empleados.h"
+	"LinkedList.h"
+
+1561394180 source:c:\users\sangl\desktop\modelodeparcial\modelodeparcial\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"empleados.h"
+
+1561398053 source:c:\users\sangl\desktop\repositorios viejos\modelodeparcial\modelodeparcial\empleados.c
+	<stdio.h>
+	<stdlib.h>
+	"Validaciones.h"
+	"empleados.h"
+	"LinkedList.h"
+
+1560391864 c:\users\sangl\desktop\repositorios viejos\modelodeparcial\modelodeparcial\validaciones.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1561392344 c:\users\sangl\desktop\repositorios viejos\modelodeparcial\modelodeparcial\empleados.h
+
+1561390949 c:\users\sangl\desktop\repositorios viejos\modelodeparcial\modelodeparcial\linkedlist.h
+
+1561391812 source:c:\users\sangl\desktop\repositorios viejos\modelodeparcial\modelodeparcial\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1561396756 source:c:\users\sangl\desktop\repositorios viejos\modelodeparcial\modelodeparcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"parser.h"
+	"empleados.h"
+
+1560391864 c:\users\sangl\desktop\repositorios viejos\modelodeparcial\modelodeparcial\parser.h
+
+1561394180 source:c:\users\sangl\desktop\repositorios viejos\modelodeparcial\modelodeparcial\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"empleados.h"
+
+1560391864 source:c:\users\sangl\desktop\repositorios viejos\modelodeparcial\modelodeparcial\validaciones.c
+	"validaciones.h"
+

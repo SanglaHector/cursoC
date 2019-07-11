@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "LinkedList.h"
-#include "Dominio.h"
+#include "empleados.h"
 
 /** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo texto).
  *
@@ -10,31 +10,24 @@
  * \return int
  *
  */
-int parser_FromText(FILE* pFile , LinkedList* pArrayListEmployee)
+int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 {
     int retorno = 0;
-    eDominio* elemento;
+    Employee* empleado;
     char id[50];
-    char dominio[60];
-    char anio[50];
-    char tipo[50];
+    char nombre[60];
+    char horas[50];
     int registro;
-    //fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,dominio,anio,tipo);
+    fscanf(pFile,"%[^,],%[^,],%[^\n]\n",id,nombre,horas);
+    printf("\nhice el primer printf");
     while(!feof(pFile))
     {
-        registro = fscanf(pFile,"%[^,],%[^,],%[^\n]\n",id,dominio,anio/*,tipo*/);
-        if(registro  == 3 )
+        registro = fscanf(pFile,"%[^,],%[^,],%[^\n]\n",id,nombre,horas);
+        if(registro == 3)
         {
-            elemento = d_newParametros(id,dominio,anio,tipo);
-            if( elemento != NULL)
-            {
-               // printf("\n%10s,%10s,%10s",id,dominio,anio);// tomo bien los elementos
-                ll_add(pArrayListEmployee,elemento);
-               // mostrarElemento(elemento);//muestro bien el elemento
-
-                retorno ++;
-            }
-
+            empleado = employee_newParametros(id,nombre,horas);
+            ll_add(pArrayListEmployee,empleado);
+            retorno ++;
         }else
         {
             retorno = 0;
@@ -52,7 +45,7 @@ int parser_FromText(FILE* pFile , LinkedList* pArrayListEmployee)
  * \return int
  *
  */
-/*int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
+int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
 {
     Employee* auxEmployee;
     int retorno=1;
@@ -80,4 +73,3 @@ int parser_FromText(FILE* pFile , LinkedList* pArrayListEmployee)
     fclose(pFile);
     return retorno;
 }
-*/

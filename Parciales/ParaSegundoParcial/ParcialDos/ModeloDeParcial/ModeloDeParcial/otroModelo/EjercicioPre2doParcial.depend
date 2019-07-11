@@ -1,0 +1,62 @@
+# depslib dependency file v1.0
+1561391812 source:c:\users\sangl\desktop\modelodeparcial\otromodelo\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1561390949 c:\users\sangl\desktop\modelodeparcial\otromodelo\linkedlist.h
+
+1561405963 source:c:\users\sangl\desktop\modelodeparcial\otromodelo\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Compra.h"
+	"LinkedList.h"
+	"Parser.h"
+
+1561405051 c:\users\sangl\desktop\modelodeparcial\otromodelo\compra.h
+	"LinkedList.h"
+
+1561398634 c:\users\sangl\desktop\modelodeparcial\otromodelo\parser.h
+
+1560391864 source:c:\users\sangl\desktop\modelodeparcial\otromodelo\validaciones.c
+	"validaciones.h"
+
+1560391864 c:\users\sangl\desktop\modelodeparcial\otromodelo\validaciones.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1561404981 source:c:\users\sangl\desktop\modelodeparcial\otromodelo\compra.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"LinkedList.h"
+	"Compra.h"
+	"validaciones.h"
+
+1561400659 source:c:\users\sangl\desktop\modelodeparcial\otromodelo\linkeddos.c
+	"Compra.h"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"LinkedList.h"
+	"validaciones.h"
+	"LinkedDos.h"
+
+1561400892 c:\users\sangl\desktop\modelodeparcial\otromodelo\linkeddos.h
+	"Compra.h"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"LinkedList.h"
+	"validaciones.h"
+
+1561402501 source:c:\users\sangl\desktop\modelodeparcial\otromodelo\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Compra.h"
+

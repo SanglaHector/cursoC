@@ -19,7 +19,6 @@ int parser_FromText(FILE* pFile , LinkedList* pArrayListEmployee)
     char anio[50];
     char tipo[50];
     int registro;
-    //fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,dominio,anio,tipo);
     while(!feof(pFile))
     {
         registro = fscanf(pFile,"%[^,],%[^,],%[^\n]\n",id,dominio,anio/*,tipo*/);
@@ -28,10 +27,7 @@ int parser_FromText(FILE* pFile , LinkedList* pArrayListEmployee)
             elemento = d_newParametros(id,dominio,anio,tipo);
             if( elemento != NULL)
             {
-               // printf("\n%10s,%10s,%10s",id,dominio,anio);// tomo bien los elementos
                 ll_add(pArrayListEmployee,elemento);
-               // mostrarElemento(elemento);//muestro bien el elemento
-
                 retorno ++;
             }
 
